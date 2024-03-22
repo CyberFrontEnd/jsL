@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что делает функция forEach в js</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h2>что делает функция forEach в js</h2>
+<p>В JavaScript forEach() функция - это метод, доступный в массивах, который позволяет вам выполнять итерации по каждому элементу в массиве и выполнять предоставленную функцию для
+    каждого элемента. Цель этой функции - выполнить определенное действие для каждого элемента в массиве без необходимости явной итерации с использованием for цикла.</p>
+
+<p>Основной синтаксис для forEach() является:</p>
+<strong>
+    <xmp>
+        array.forEach(function(element, index, array) {
+        // Do something with each element
+        });
+    </xmp>
+</strong>
+
+<p>Вот что представляет каждый параметр:</p>
+<ul>
+    <li>
+        <b>element:</b> Текущий элемент, обрабатываемый в массиве.
+    </li>
+
+    <li>
+        <b>index (необязательно): </b> индекс текущего обрабатываемого элемента.
+    </li>
+
+    <li>
+        <b>array (необязательно):</b> был вызван массив forEach().
+    </li>
+</ul>
+
+<p>Функция, переданная forEach() в качестве аргумента, будет выполняться один раз для каждого элемента в массиве, и вы можете выполнить любую желаемую операцию внутри этой
+    функции.</p>
+
+
+<strong>
+    <xmp>
+        let numbers = [1, 2, 3, 4, 5];
+
+        numbers.forEach(function(number) {
+        console.log(number);
+        });
+    </xmp>
+</strong>
+
+<i>Результат</i>
+<p>1
+    2
+    3
+    4
+    5
+</p>
+
+
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+
+<script>
+  document.querySelectorAll('.btn').forEach(item => {
+    item.addEventListener('click', () => {
+      alert('this is awesome')
+    })
+  })
+</script>
+</body>
+</html>

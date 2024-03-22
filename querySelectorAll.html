@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что делает функция querySelectorAll в js </title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h2>что делает функция querySelectorAll в js </h2>
+<p>В JavaScript, функция querySelectorAll() используется для выбора всех элементов в документе, которые соответствуют заданному CSS селектору, и возвращает NodeList, который
+    представляет собой статический список элементов DOM. Этот метод позволяет выбирать элементы по широкому спектру критериев, таких как тег, класс, идентификатор, атрибуты и
+    т.д.</p>
+
+<strong>
+    <xmp>
+        // Выбираем все элементы с классом "example"
+        const elements = document.querySelectorAll('.example');
+
+        // Проходим по всем найденным элементам и изменяем их содержимое
+        elements.forEach(function(element) {
+        element.textContent = 'Этот текст изменен';
+        });
+    </xmp>
+</strong>
+
+<p>Здесь метод querySelectorAll('.example') найдет все элементы с классом "example" на странице и вернет их в виде NodeList. Затем мы используем forEach(), чтобы перебрать каждый
+    элемент и изменить его текстовое содержимое.</p>
+
+<p>Важно отметить, что NodeList, возвращаемый querySelectorAll(), является статическим, то есть он не будет обновляться автоматически при изменении документа. Если вам нужна
+    динамическая коллекция элементов, которая будет обновляться в соответствии с изменениями в документе, вы можете использовать методы, такие как querySelector() или
+    getElementsByClassName(), которые возвращают живую коллекцию элементов.</p>
+
+
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+
+<script>
+  document.querySelectorAll('.btn').forEach(item => {
+    item.addEventListener('click', () => {
+      alert('this is awesome')
+    })
+  })
+</script>
+</body>
+</html>

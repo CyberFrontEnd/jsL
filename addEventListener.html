@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что делает функция addEventListener в js</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h2>что делает функция addEventListener в js </h2>
+<p>Функция addEventListener() в JavaScript используется для добавления обработчика событий к определенному элементу DOM. Этот метод позволяет привязать функцию (обработчик) к
+    определенному событию (например, клик, наведение мыши, нажатие клавиши и т. д.), которое может произойти с этим элементом.</p>
+
+<strong>
+    <xmp>
+        element.addEventListener(event, handlerFunction);
+    </xmp>
+</strong>
+
+<p>Вот что представляет каждый параметр:</p>
+<ul>
+    <li>
+        <b>element:</b> Элемент DOM, к которому вы хотите добавить обработчик событий.
+    </li>
+
+    <li>
+        <b>event</b> Строка, указывающая тип события, к которому вы хотите привязать обработчик.
+    </li>
+
+    <li>
+        <b>handlerFunction</b> Функция, которая будет вызвана при наступлении события. Эта функция может принимать аргумент события (обычно обозначается как event), который
+        содержит информацию о событии.
+    </li>
+</ul>
+
+<p>Пример использования addEventListener():</p>
+<strong>
+    <xmp>
+        const button = document.getElementById('myButton');
+
+        function handleClick(event) {
+        console.log('Кнопка была нажата');
+        }
+
+        button.addEventListener('click', handleClick);
+    </xmp>
+</strong>
+
+<p>В этом примере при нажатии на кнопку с id "myButton" будет вызвана функция handleClick(), которая выводит сообщение в консоль</p>
+
+<p>Одним из преимуществ `adaddEventListener() является то, что вы можете добавлять несколько обработчиков для одного события на один и тот же элемент. Это делает его гибким и
+    удобным инструментом для работы с событиями в JavaScript. Кроме того, с помощью removeEventListener() вы можете удалить обработчики событий, если они больше не нужны, что
+    помогает избежать утечек памяти и других проблем.</p>
+
+
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+
+<script>
+  document.querySelectorAll('.btn').forEach(item => {
+    item.addEventListener('click', () => {
+      alert('this is awesome')
+    })
+  })
+</script>
+</body>
+</html>

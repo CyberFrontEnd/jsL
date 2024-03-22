@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>конкатенация строк в javascript</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>Конкатенация строк в javascript</h1>
+
+<p>В JavaScript вы можете объединять строки с помощью + оператора или с помощью шаблонных литералов (представленных в ES6). Вот как вы можете это сделать.:</p>
+
+<ol>
+    <li>
+        <p><b>Использование оператора +:</b></p>
+        <strong>
+            <xmp>
+                let str1 = "Hello";
+                let str2 = "world";
+                let result = str1 + " " + str2;
+                console.log(result); // Output: Hello world
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p><b>Использование шаблонных литералов:</b> </p>
+        <strong>
+            <xmp>
+                let str1 = "Hello";
+                let str2 = "world";
+                let result = `${str1} ${str2}`;
+                console.log(result); // Output: Hello world
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Литералы шаблонов обеспечивают большую гибкость, поскольку вы можете встраивать выражения или переменные непосредственно в строку, делая ее более читаемой и краткой.</p>
+        <p>Вот пример использования выражений внутри литералов шаблона:</p>
+        <strong>
+            <xmp>
+                let name = "John";
+                let age = 30;
+                let result = `My name is ${name} and I am ${age} years old.`;
+                console.log(result); // Output: My name is John and I am 30 years old.
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Оба метода достигают одинакового результата, но литералы шаблонов обычно предпочтительнее из-за их удобочитаемости и гибкости.</p>
+    </li>
+</ol>
+
+<h3>Задача обединения строк</h3>
+<b>Важным факторам является кавычки ` текст и эти литералы лучше писать в таких кавычках`</b>
+
+<script>
+    const street = 'main street';
+    const country = 'USA';
+
+    const  fullMailingAddress = `${street} ${country}`;
+    console.log(fullMailingAddress);
+</script>
+</body>
+</html>

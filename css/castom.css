@@ -1,0 +1,48 @@
+html, body {
+  font-family: 'Gotham Pro', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  min-width: 320px;
+  scroll-behavior: smooth;
+  background-color: gray;
+  height: 100vh;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  color: yellow;
+}
+
+h2,
+h1 {
+  color: #000;
+  margin-bottom: 10px;
+}
+
+
+p {
+  color: #ffffff;
+}
+
+ol li,
+ul li {
+  margin-bottom: 30px;
+}
+
+ol {
+  margin-top: 20px;
+}
+
+i {
+  color: yellow;
+}
+
+.olList li {
+  margin-bottom: 5px;
+  margin-left: 40px;
+}

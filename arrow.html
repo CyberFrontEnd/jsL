@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что делает функция () => в js</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h2>Что делает функция () => в js</h2>
+<p>В JavaScript, выражение () => представляет собой синтаксис стрелочной функции (arrow function). Стрелочные функции представляют более короткий синтаксис для создания функций в
+    JavaScript и были введены в стандарте ECMAScript 6 (ES6).</p>
+
+<i>Основной синтаксис стрелочных функций выглядит так:</i>
+<strong>
+    <xmp>
+        (parameters) => {
+        // тело функции
+        }
+    </xmp>
+</strong>
+
+<p>Здесь parameters - это список параметров функции (если они есть), а тело функции заключается в фигурные скобки {}.</p>
+
+
+<p>Если функция принимает только один параметр, то скобки можно опустить:</p>
+<strong>
+    <xmp>
+        parameter => {
+        // тело функции
+        }
+    </xmp>
+</strong>
+
+<p>Если тело функции состоит из одной инструкции, то фигурные скобки и ключевое слово return можно опустить, и значение этой инструкции буде</p>
+<strong>
+    <xmp>
+        parameter => expression
+    </xmp>
+</strong>
+
+<p>Стрелочные функции имеют некоторые особенности по сравнению с обычными функциями:</p>
+<ol>
+    <li>
+        <p><b>Лексическое значение this:</b> Значение this в стрелочной функции принимается из контекста, в котором она была создана, а не из контекста вызова. Это позволяет
+            избежать проблем с this, с которыми сталкиваются в обычных функциях.</p>
+    </li>
+
+    <li>
+        <p><b>Не имеют собственного объекта arguments:</b> В стрелочных функциях нет своего собственного объекта `arguments. Вместо этого можно использовать rest parameters.</p>
+    </li>
+
+    <li>
+        <b>Нельзя использовать в качестве конструктора: </b>
+        <p>Стрелочные функции не могутnew и вызываnew, они не имеют собственного прототипа и вызовет ошибку, если попытаться использовать их как конструктор.</p>
+    </li>
+</ol>
+
+<p>Вот пример использования стрелочной функции:</p>
+<strong>
+    <xmp>
+        const add = (a, b) => {
+        return a + b;
+        }
+
+        console.log(add(2, 3)); // Выведет: 5
+
+        Это
+
+        function add(a, b) {
+        return a + b;
+        }
+
+        console.log(add(2, 3)); // Выведет: 5
+    </xmp>
+</strong>
+
+<i>Стрелочные функции особенно полезны для краткости кода и для использования в контекстах, где важно сохранить значение this.</i>
+
+
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+<button class="btn">random button</button>
+
+<script>
+  document.querySelectorAll('.btn').forEach(item => {
+    item.addEventListener('click', () => {
+      alert('this is awesome')
+    })
+  })
+</script>
+</body>
+</html>
