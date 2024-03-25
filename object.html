@@ -78,5 +78,47 @@
     </li>
 </ol>
 
+
+<script>
+  const person = {
+    name: "Giorgi",
+    lastName: "Omiadze",
+    age: 40,
+    education: false,
+    married: true,
+    subLings: ['anna', 'susan', 'peter'],
+    greeting: function sayHello() {
+      console.log("Hello my name is Join");
+    }
+  }
+
+  console.log(person.name);
+  console.log(person.subLings[2]);
+  person.greeting();
+  person.name = "Joi"
+  console.log(person.name);
+
+  //   Start object car
+  const car = {
+    make: "bmw",
+    model: "x6",
+    year: 1970,
+    colors: ["black", "red", "yellow"],
+    hibrid: false,
+    drive: function () {
+      console.log('Driving...');
+    },
+    stop() {
+      console.log('stoped!!!');
+    }
+  };
+
+  console.log(car.make);
+  console.log(car.stop());
+  console.log(car.drive());
+  console.log(car.hibrid);
+  console.log(car.colors[1]);
+
+</script>
 </body>
 </html>

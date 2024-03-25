@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>инструкция switch</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>инструкция switch</h1>
+
+<p>В JavaScript оператор switch предоставляет способ выполнения различных блоков кода на основе значения выражения. Он часто используется как альтернатива длинным цепочкам
+    if...else if...else инструкций, когда вам нужно проверить несколько условий для одной и той же переменной.</p>
+
+<ol>
+    <li>
+        <h2>Вот базовый синтаксис оператора switch:</h2>
+        <strong>
+            <xmp>
+                switch (expression) {
+                case value1:
+                // code block to execute if expression === value1
+                break;
+                case value2:
+                // code block to execute if expression === value2
+                break;
+                // additional cases as needed
+                default:
+                // code block to execute if expression doesn't match any case
+                }
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Вот как это работает:</p>
+
+        <p>expression Оценивается один раз.</p>
+        <p>Затем значение expression сравнивается со значениями каждого case.</p>
+        <p>Если совпадение найдено, выполняется соответствующий блок кода.</p>
+        <p>Если совпадение не найдено, и default указан регистр, будет выполнен его блок кода.</p>
+        <p>Оператор break используется для выхода из switch оператора. Если этот параметр опущен, выполнение "провалится" до следующего обращения (если только в этом обращении
+            также нет break или не достигнут конец switch блока).</p>
+
+        <strong>
+            <xmp>
+                let fruit = 'Apple';
+
+                switch (fruit) {
+                case 'Banana':
+                console.log('Banana is yellow');
+                break;
+                case 'Apple':
+                console.log('Apple is red');
+                break;
+                case 'Orange':
+                console.log('Orange is orange');
+                break;
+                default:
+                console.log('Unknown fruit');
+                }
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Оператор свободного равенства (==):</p>
+        <p>Этот оператор сравнивает значения после попытки преобразовать их в общий тип. Он возвращает true, если операнды равны после преобразования типа, в противном случае он
+            возвращает false. Например:</p>
+        <strong>
+            <xmp>
+                console.log(5 == 5); // true
+                console.log(5 == '5'); // true
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Оператор неравенства (!== и !=):</p>
+        <p>Эти операторы являются отрицанием операторов равенства (=== и ==) соответственно. Они возвращают true, если операнды не равны (ни по значению, ни по типу), в противном
+            случае они возвращают false. Например:</p>
+        <strong>
+            <xmp>
+                console.log(5 !== '5'); // true
+                console.log(5 != '5'); // false
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Операторы равенства широко используются в условных операторах (if, switch и т.д.) И сравнениях во всех программах JavaScript для управления потоком выполнения и
+            определения поведения на основе значений переменных.</p>
+    </li>
+
+    <li>
+        <p>Он имеет следующий синтаксис:</p>
+        <p>Вот как это работает:</p>
+        <p>condition это выражение, которое принимает значение true или false.</p>
+        <p>Если condition имеет значение true, то expressionIfTrue выполняется.</p>
+        <p>Если condition равно false, то expressionIfFalse выполняется.</p>
+        <strong>
+            <xmp>
+                condition ? expression1 : expression2
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>В этом примере:</p>
+        <p>Условие age >= 18 проверяет, является ли переменная age больше или равной 18.</p>
+        <p>Если условие выполнено, переменной присваивается значение "Allowed" allowed.</p>
+        <p>Если условие равно false, переменной присваивается значение "Не разрешено" allowed.</p>
+
+        <strong>
+            <xmp>
+                var age = 20;
+                var allowed = (age >= 18) ? "Allowed" : "Not allowed";
+
+                console.log(allowed); // Output: "Allowed"
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>В этом примере результатом будет "Apple is red", потому что fruit установлено значение 'Apple'.</p>
+    </li>
+
+    <li>
+        <p>switch инструкции обычно используются в ситуациях, когда существует несколько возможных условий для проверки одного и того же значения, таких как выбор меню, обработка
+            состояния или любой сценарий, в котором у вас есть ограниченное количество возможных значений для оценки. Однако важно отметить, что switch инструкции иногда могут быть
+            менее удобочитаемыми или обслуживаемыми по сравнению с другими структурами потока управления, особенно при работе со сложными условиями. Таким образом, это часто
+            зависит от предпочтений разработчика и конкретных вариантов использования.</p>
+    </li>
+</ol>
+
+
+<script>
+
+  let fruit = 'Apple';
+
+  switch (fruit) {
+    case 'Banana':
+      console.log('Banana is yellow');
+      break;
+    case 'Apple':
+      console.log('Apple is red');
+      break;
+    case 'Orange':
+      console.log('Orange is orange');
+      break;
+    default:
+      console.log('Unknown fruit');
+  }
+
+  //Start udemuy
+
+  const dice = 1;
+  if (dice === 1) {
+    console.log('you got one');
+  } else if (dice === 2) {
+    console.log('you got two');
+  } else {
+    console.log('you did not roll the dice');
+  }
+
+  //Start switch
+  const dice2 = 1;
+  switch (dice2) {
+    case 1:
+      console.log('you got one');
+      break;
+    case 2:
+      console.log('you got two');
+      break;
+    case 3:
+      console.log('you got three');
+      break;
+    default:
+      console.log('you did not roll the dice');
+  }
+
+</script>
+</body>
+</html>

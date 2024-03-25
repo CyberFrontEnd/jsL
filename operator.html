@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Условные операторы</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>Условные операторы</h1>
+
+<p>Условные операторы в JavaScript, часто называемые троичными операторами, предоставляют краткий способ написания условных операторов. Синтаксис троичного оператора таков:</p>
+
+<ol>
+    <li>
+        <h2>В JavaScript условные операторы используются для выполнения различного кода на основе заданных условий. В J в основном используются два типа условных операторов.</h2>
+    </li>
+
+    <li>
+        <p>Троичный оператор (? :):</p>
+    </li>
+
+    <li>
+        <p>Тернарный оператор - наиболее распространенный условный оператор в JavaScript.</p>
+    </li>
+
+    <li>
+        <p>Это называется "троичным", потому что оно принимает три операнда.</p>
+    </li>
+
+    <li>
+        <p>Он имеет следующий синтаксис:</p>
+        <p>Вот как это работает:</p>
+        <p>condition это выражение, которое принимает значение true или false.</p>
+        <p>Если condition имеет значение true, то expressionIfTrue выполняется.</p>
+        <p>Если condition равно false, то expressionIfFalse выполняется.</p>
+        <strong>
+            <xmp>
+                condition ? expression1 : expression2
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>В этом примере:</p>
+        <p>Условие age >= 18 проверяет, является ли переменная age больше или равной 18.</p>
+        <p>Если условие выполнено, переменной присваивается значение "Allowed" allowed.</p>
+        <p>Если условие равно false, переменной присваивается значение "Не разрешено" allowed.</p>
+
+        <strong>
+            <xmp>
+                var age = 20;
+                var allowed = (age >= 18) ? "Allowed" : "Not allowed";
+
+                console.log(allowed); // Output: "Allowed"
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Тернарные операторы часто используются для присвоения значений переменным на основе условий или для возврата значений из функций на основе условий в более сжатой форме,
+            чем традиционные if...else операторы. Однако чрезмерное использование троичных операторов иногда может сделать код менее читаемым, поэтому важно использовать их
+            разумно.</p>
+    </li>
+
+    <li>
+        <h2>Логические операторы (&&, ||):</h2>
+    </li>
+
+    <li>
+        <p>Они в основном используются для оценки условий и принятия решений на основе</p>
+    </li>
+
+    <li>
+        <p>Логический оператор <b>AND (&&)</b> возвращает значение true, если оба операнда равны true, в противном случае он возвращает значение false.</p>
+    </li>
+
+    <li>
+        <p>Логический оператор OR (||) возвращает true if at true, в противном случае он возвращает false.</p>
+    </li>
+
+    <li>
+        <strong>
+            <xmp>
+                var isRaining = true;
+                var isCold = false;
+
+                if (isRaining && isCold) {
+                console.log("It's raining and cold.");
+                } else if (isRaining) {
+                console.log("It's raining but not cold.");
+                } else if (isCold) {
+                console.log("It's cold but not raining.");
+                } else {
+                console.log("It's neither raining nor cold.");
+                }
+            </xmp>
+        </strong>
+        <p>ти условные операторы позволяют коду JavaScript динамически принимать решения на основе определенных условий, обеспечивая более гибкое и мощное программирование.</p>
+    </li>
+</ol>
+
+
+<script>
+  // var age = 20;
+  // var allowed = (age >= 18) ? "Allowed" : "Not allowed";
+
+  // console.log(allowed); // Output: "Allowed"
+
+  //Start operator
+
+  const name = "bob";
+  const age = 26;
+  if (name === "bob" || age === 26) {
+    console.log('hello there user');
+  } else {
+    console.log('wrong values');
+  }
+
+
+  const name2 = "bobi";
+  const age2 = 26;
+  if (name2 === "bobi" && age2 === 26) {
+    console.log('hello there user');
+  } else {
+    console.log('wrong values');
+  }
+
+  //Start chelenge
+  const person1 = {
+    name: 'susan',
+    age: 25,
+    status: 'resident',
+  };
+
+  const person2 = {
+    name: 'bob',
+    age: 17,
+    status: 'tourist',
+  };
+
+  if (person1.age >= 18 && person1.status === 'resident') {
+    console.log('you can cast a vote');
+  } else {
+    console.log('you are not eligible');
+  }
+</script>
+</body>
+</html>
