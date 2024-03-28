@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>строковый объект в javascript</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>оператор while, do while, for</h1>
+
+<p>В JavaScript объект string представляет последовательность символов. Строки являются примитивными типами данных в JavaScript, но у них также есть связанные объекты, которые
+    предоставляют дополнительные свойства и методы для работы со строками.</p>
+
+<ol>
+    <li>
+        <p>Вы можете создать строку, используя либо строковые литералы, либо конструктор String object . Вот как вы можете создать строку, используя строковые литералы:</p>
+        <strong>
+            <xmp>
+                let str1 = "Hello, world!"; // Using string literal
+            </xmp>
+        </strong>
+
+        <p>И вот как вы можете создать строку, используя конструктор String object:</p>
+        <strong>
+            <xmp>
+                let str2 = new String("Hello, world!"); // Using String object constructor
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Однако использование строковых литералов является предпочтительным и более распространенным способом создания строк в JavaScript, потому что это проще и эффективнее.</p>
+        <p>троковые объекты предоставляют различные методы и свойства, которые позволяют вам манипулировать строками и работать с ними. Некоторые распространенные методы включают
+            length, charAt(), substring() indexOf()replace(), toUpperCase() toLowerCase() split() и многие другие.</p>
+    </li>
+
+    <li>
+        <p>Вот пример, демонстрирующий использование некоторых из этих методов:</p>
+        <strong>
+            <xmp>
+                let str = "Hello, world!";
+
+                console.log(str.length); // Outputs: 13
+
+                console.log(str.charAt(0)); // Outputs: H
+
+                console.log(str.substring(0, 5)); // Outputs: Hello
+
+                console.log(str.indexOf("world")); // Outputs: 7
+
+                console.log(str.replace("world", "JavaScript")); // Outputs: Hello, JavaScript!
+
+                console.log(str.toUpperCase()); // Outputs: HELLO, WORLD!
+
+                console.log(str.toLowerCase()); // Outputs: hello, world!
+
+                console.log(str.split(",")); // Outputs: ["Hello", " world!"]
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Помните, хотя вы можете использовать строковые литералы напрямую, не создавая строковый объект, JavaScript автоматически преобразует строковые литералы во временные
+            строковые объекты, когда это необходимо, так что вы все равно можете получить доступ к строковым методам и свойствам с помощью строковых литералов.</p>
+    </li>
+</ol>
+
+<script>
+  // let text = " Peter Jordon ";
+  // const person = {
+  //   name: "peter", // property
+  //   greeting() {
+  //        // method
+  //     console.log("Hey, I'm Peter");
+  //   },
+  // };
+  //
+  // console.log(person);
+  // console.log(person.name);
+  // person.greeting();
+
+  let text = "Peter Jordon";
+  let result = text.length;
+  console.log(result);
+  console.log(text.toLowerCase());
+  console.log(text.toUpperCase());
+  console.log(text.charAt(0)); // получает символ по индексу
+  console.log(text.charAt(text.length - 1)); // получает последний символ
+  console.log(text.indexOf('t')); // получает индекс символа
+  console.log(text.trim()); //
+  console.log(text.startsWith('Peter')); // Возврашает истину или лож
+  console.log(text.trim().toLowerCase().startsWith("Peter"));
+  console.log(text.includes("eter"));
+  console.log(text.slice(0, 2));
+  console.log(text.slice(-3));
+
+  //Задача
+  // function fullName(firstName, lastName) {
+  //   const fullName = `${firstName} ${lastName}`;
+  //   return fullName.toUpperCase();
+  // }
+
+  // console.log(fullName('Giorgi', 'Omiadze'));
+
+  function fullName({firstName, lastName}) {
+    const fullName = `${firstName} ${lastName}`;
+    return fullName.toUpperCase();
+  }
+
+  /*
+  * Но оба они действительны, и оба вы можете использовать. И снова, преимущество здесь в том, что, да, возможно, настройка немного дольше, но результат? Это то место, где вам
+  * наплевать на аргумент "или выключен".
+  * */
+  console.log(fullName({lastName: 'Giorgi', firstName: 'Omiadze'}));
+  console.log(fullName({firstName: 'Giorgi', lastName: 'Omiadze'}));
+</script>
+</body>
+</html>
