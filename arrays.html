@@ -98,7 +98,48 @@
 
 <br><br><br><br>
 
+<script>
+    let names = ['john', 'boba', 'barry', 'olga', 'ben', 2,3,4];
+    console.log(names.length);
+    console.log(names[names.length -1] );
 
+    // concat добавляет в конец массива
+    const lastNames = ['pepper', 'onion', 'banana'];
+    const allNames = names.concat(lastNames);
+    console.log(allNames);
+
+    // reverse
+    console.log(allNames.reverse());
+
+    // unshift добавляет в начала массива
+    allNames.unshift('susy');
+    console.log(allNames);
+
+    // shft удаляет начало массива
+    allNames.shift();
+    allNames.shift();
+    allNames.shift();
+    allNames.shift();
+    console.log(allNames);
+
+    // push добавляет в конец массива
+    allNames.push('susy')
+    console.log(allNames);
+
+    // pop Удаляет с конеца массива
+    // allNames.pop();
+    // allNames.pop();
+    // allNames.pop();
+    // allNames.pop();
+    console.log(allNames);
+
+    // splice - это метод, который позволяет изменять массив путем добавления или удаления из него элементов. Он напрямую изменяет содержимое исходного массива.
+    // Итак, вкратце, splice() позволяет изменять массив путем добавления новых элементов, удаления существующих элементов или замены элементов, и все это за одну операцию.
+     const specificNames = allNames.splice(5);
+     console.log(specificNames);
+     console.log(allNames);
+
+</script>
 
 </body>
 </html>
