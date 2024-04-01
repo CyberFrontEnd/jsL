@@ -187,7 +187,80 @@
   //   console.log("and the number is : " + i );
   // }
 
+  /*
+  *
+  */
+  // const names = ['anna', 'susy', 'bob', 'john', 'susan'];
+  // const lastName = 'shakeandbake';
+  // let newArray = [];
 
+  /*
+  * Перебор массива
+  * 1) инициализация 2) проверка массива если больше нуля если да 3) инкременте
+  * 2) names.length - 1 Это условие гарантирует, что цикл повторяется по всем элементам массива, кроме последнего.
+  * 3) i++: Это оператор increment. Он увеличивает значение i на 1 после каждой итерации цикла.
+  * 4) Внутри цикла, console.log(names[i]) используется для вывода элемента names массива с индексом i на консоль.
+  * 5) Итак, names[i] выводит каждый элемент names массива один за другим по мере выполнения цикла итерации по массиву. А последний удаляет
+  */
+  //   for (let i = 0; i < names.length -1; i++) {
+  // //    console.log(i);
+  //     console.log(names[i]);
+  //     // newArray.push(names[i]);
+  //     const fullName = `${names[i]} ${lastName}`;
+  //     newArray.push(fullName);
+  //   }
+  //
+  //   console.log(names);
+  //   console.log(newArray);
+
+  /*
+  * Start calculate function
+  * Упражнения вычислить итог
+  */
+  const gas = [20, 40, 100, 30];
+  const food = [10, 40, 50];
+
+  function calculateTotal(arr) {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+      // console.log(arr[i]);
+      total += arr[i]; // прибавить и присвоить
+    }
+    if (total > 100) {
+      console.log(`Ого! Вы тратите слишком много`);
+      // return  total;
+    } else {
+      // console.log(`Вы хороши, итого меньше 100`);
+    }
+
+    // console.log(total);
+    return total;
+  }
+
+  const gasTotal = calculateTotal(gas);
+  const foodTotal = calculateTotal(food);
+  const randomTotal = calculateTotal([200, 4000, 500, 1]);
+
+  console.log({
+    gas: gasTotal,
+    food: foodTotal,
+    random: randomTotal
+  });
+
+  // значения против ссылки
+  const number = 1;
+  let number2 = number;
+  number2 = 7;
+  console.log(`первое значение - это ${number}`);
+  console.log(`второе значение - это ${number2}`);
+  let person = {name: 'job'}
+  // так будет susi
+  // let person2 = person;
+
+  // так будет job
+  let person2 = {...person};
+  person2.name = 'susi';
+  console.log(`имя первого человека - это ${person.name}`);
 </script>
 </body>
 </html>

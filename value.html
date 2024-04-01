@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Значение против ссылки</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>Значение против ссылки</h1>
+
+<script>
+  // значения против ссылки
+  const number = 1;
+  let number2 = number;
+  number2 = 7;
+  console.log(`первое значение - это ${number}`);
+  console.log(`второе значение - это ${number2}`);
+  let person = {name: 'job'}
+  // так будет susi
+  // let person2 = person;
+
+  // так будет job
+  let person2 = {...person};
+  person2.name = 'susi';
+  console.log(`имя первого человека - это ${person.name}`);
+</script>
+</body>
+</html>
