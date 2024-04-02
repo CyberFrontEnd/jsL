@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Глобальная область видимости и локальная область видимости в javascript и примерах</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>Глобальная область видимости и локальная область видимости в javascript и примерах</h1>
+
+<p>В JavaScript область действия относится к доступности переменных, функций и объектов в определенных частях вашего кода. Существует два основных типа области действия: глобальная
+    область действия и локальная область действия.</p>
+
+<ul>
+    <li>
+        <b>Глобальный охват:</b>
+        <ol>
+            <li>
+                <span>Переменные, объявленные вне какой-либо функции, имеют глобальную область видимости.</span>
+            </li>
+
+            <li>
+                <span>Доступ к глобальным переменным и их изменение возможны из любого места вашего кода, в том числе из функций.</span>
+            </li>
+
+            <li>
+                <span>Глобальные переменные доступны во всей вашей программе JavaScript.</span>
+            </li>
+
+            <li>
+                <span>Однако обычно считается, что наилучшей практикой является ограничение использования глобальных переменных для предотвращения непреднамеренных побочных эффектов и потенциальных конфликтов именования.</span>
+            </li>
+        </ol>
+
+        <strong>
+            <xmp>
+                var globalVar = "I am a global variable";
+
+                function foo() {
+                console.log(globalVar); // Output: I am a global variable
+                }
+
+                foo(); // Call the function
+                console.log(globalVar); // Output: I am a global variable
+            </xmp>
+        </strong>
+    </li>
+</ul>
+
+<b>Локальная область:</b>
+
+<ol>
+    <li>
+        <p>Переменные, объявленные внутри функции, имеют локальную область видимости.</p>
+    </li>
+
+    <li>
+        <p>Доступ к локальным переменным и их изменение возможны только внутри функции, в которой они объявлены.</p>
+    </li>
+
+    <li>
+        <p>Они недоступны извне функции.</p>
+    </li>
+
+    <li>
+        <b>Пример локальной области видимости:</b>
+        <strong>
+            <xmp>
+                function foo() {
+                var localVar = "I am a local variable";
+                console.log(localVar); // Output: I am a local variable
+                }
+
+                foo(); // Call the function
+                console.log(localVar); // Error: localVar is not defined
+            </xmp>
+        </strong>
+    </li>
+</ol>
+
+<p>В приведенном выше примере, localVar объявлен внутри функции foo(), поэтому доступен только внутри этой функции. Попытка получить доступ localVar за пределами foo() приведет к
+    ошибке.</p>
+<p>Важно понимать область видимости в JavaScript, чтобы избежать конфликтов именования переменных и написать более обслуживаемый код без ошибок. Кроме того, понимание области
+    видимости имеет решающее значение для понимания замыканий и того, как они работают в JavaScript.</p>
+
+
+<script>
+
+  // Global scope
+  // let name = 'bobo';
+  // name = 'peter';
+  // console.log(`my name is ${name} and I'm awesome`);
+  //
+  // function calculate () {
+  //   // some other code...
+  //   console.log(name);
+  //   name = 'orange';
+  //   function inner() {
+  //     name = 'inner name value';
+  //     console.log(`this is from inner function ${name}`);
+  //   }
+  //   inner();
+  // }
+  //
+  // calculate();
+  //
+  // if (true) {
+  //   console.log(name);
+  //   name = 'pants';
+  // }
+
+  // Local scope
+  let name = 'bobo';
+  name = 'peter';
+
+  function calculate() {
+    const name = 'john';
+    const age = 25;
+
+    becomesGlobal = 'global variable'
+  }
+
+  calculate();
+  console.log(becomesGlobal);
+
+</script>
+</body>
+</html>
