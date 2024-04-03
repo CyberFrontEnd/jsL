@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>функции обратного вызова и </title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>Функции обратного вызова</h1>
+
+<p>Функции обратного вызова - это функции, которые передаются в качестве аргументов другим функциям для вызова этими функциями в более поздний момент времени, часто при наступлении
+    определенного события или при выполнении определенных условий. Функции обратного вызова являются фундаментальной концепцией в программировании, управляемом событиями, и обычно
+    используются в асинхронном программировании, например, в JavaScript.</p>
+
+<strong>
+    <xmp>
+        function process(callback) {
+        // Выполните некоторую асинхронную операцию
+        setTimeout(function() {
+
+        // После завершения операции вызовите функцию обратного вызова
+        callback();
+        }, 1000); // Имитация задержки в 1 секунду
+        }
+
+        function callbackFunction() {
+        console.log('Callback function called');
+        }
+
+        // Передайте функцию обратного вызова функции процесса
+        process(callbackFunction);
+    </xmp>
+</strong>
+
+<p>В этом примере process функция принимает функцию обратного вызова в качестве аргумента и имитирует асинхронную операцию с помощью setTimeout. После завершения операции
+    вызывается функция обратного вызова (callbackFunction).</p>
+
+<p>Функции обратного вызова универсальны и могут использоваться в различных сценариях, включая обработку событий, обработку асинхронных задач, таких как AJAX-запросы в
+    веб-разработке, и реализацию шаблонов потока управления, таких как обратные вызовы в функциональном программировании. Они обеспечивают более гибкий и модульный код, разделяя
+    проблемы и позволяя повторно использовать функции в различных контекстах.</p>
+
+
+<h2>Примеры Функции обратного вызова в javascript</h2>
+<p>Вот несколько примеров функций обратного вызова в JavaScript:</p>
+
+<ol>
+    <li>
+        <h4>Функция setTimeout():</h4>
+        <strong>
+            <xmp>
+                function greet() {
+                console.log('Hello, world!');
+                }
+
+                setTimeout(greet, 2000); // функция great() будет вызвана через 2 секунды
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Метод forEach():</h4>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+
+                numbers.forEach(function(number) {
+                console.log(number * 2);
+                });
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Обработка событий:</h4>
+        <strong>
+            <xmp>
+                document.getElementById('myButton').addEventListener('click', function() {
+                console.log('Button clicked!');
+                });
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>AJAX-запросы с помощью XMLHttpRequest:</h4>
+        <strong>
+            <xmp>
+                function fetchData(url, callback) {
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                callback(xhr.responseText);
+                }
+                };
+                xhr.open('GET', url);
+                xhr.send();
+                }
+
+                // Пример использования:
+                fetchData('https://api.example.com/data', function(data) {
+                console.log(data);
+                });
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Обещания:</h4>
+        <strong>
+            <xmp>
+                function fetchData(url) {
+                return new Promise(function(resolve, reject) {
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                resolve(xhr.responseText);
+                } else {
+                reject(xhr.statusText);
+                }
+                }
+                };
+                xhr.open('GET', url);
+                xhr.send();
+                });
+                }
+
+                // Пример использования:
+                fetchData('https://api.example.com/data')
+                .then(function(data) {
+                console.log(data);
+                })
+                .catch(function(error) {
+                console.error('Error:', error);
+                });
+            </xmp>
+        </strong>
+    </li>
+</ol>
+
+<p>Это всего лишь несколько примеров того, как функции обратного вызова обычно используются в JavaScript. Они часто используются для обработки асинхронных операций, таких как
+    обработка событий, AJAX-запросы и таймеры.</p>
+
+
+<h1>Функции более высокого порядка в javascript</h1>
+<p>В JavaScript функции высшего порядка - это функции, которые воздействуют на другие функции, принимая их в качестве аргументов или возвращая их. По сути, они рассматривают
+    функции как первоклассные "граждане", обеспечивая мощные и гибкие парадигмы программирования, такие как функциональное программирование. Функции более высокого порядка
+    позволяют вам абстрагироваться от действий, а не только от данных, повышая возможность повторного использования кода и компоновки.</p>
+
+<strong>
+    <xmp>
+        // Функция более высокого порядка, принимающая функцию в качестве аргумента
+        function doOperation(operation, a, b) {
+        return operation(a, b);
+        }
+
+        // Функции, которые будут переданы в качестве аргументов для выполнения операции
+        function add(x, y) {
+        return x + y;
+        }
+
+        function multiply(x, y) {
+        return x * y;
+        }
+
+        // Использование взаимодействия с различными операциями
+        console.log(doOperation(add, 5, 3)); // Output: 8
+        console.log(doOperation(multiply, 5, 3)); // Output: 15
+    </xmp>
+</strong>
+
+<ol>
+    <li>
+        <span>doOperation это функция более высокого порядка, потому что она принимает другую функцию (operation) в качестве аргумента.</span>
+    </li>
+
+    <li>
+        <span>add и multiply являются обычными функциями.</span>
+    </li>
+
+    <li>
+        <span>doOperation может выполнять различные операции, передавая различные функции в качестве аргументов.</span>
+    </li>
+</ol>
+
+<p>Другим распространенным примером функций более высокого порядка в JavaScript являются map, filter и reduce функции для массивов:</p>
+
+<strong>
+    <xmp>
+        const numbers = [1, 2, 3, 4, 5];
+
+        // Использование функций более высокого порядка для отображения, фильтрации и уменьшения
+        const doubled = numbers.map(num => num * 2); // Output: [2, 4, 6, 8, 10]
+        const evens = numbers.filter(num => num % 2 === 0); // Output: [2, 4]
+        const sum = numbers.reduce((acc, curr) => acc + curr, 0); // Output: 15
+    </xmp>
+</strong>
+
+<ol>
+    <li>
+        <span>map, filter, и reduce являются функциями более высокого порядка, поскольку они принимают функции обратного вызова в качестве аргументов.</span>
+    </li>
+
+    <li>
+        <span>Эти функции более высокого порядка обеспечивают краткий и выразительный способ управления массивами.</span>
+    </li>
+</ol>
+
+<p>Функции высшего порядка являются фундаментальной концепцией в функциональном программировании и широко используются в JavaScript для написания чистого, поддерживаемого и
+    повторно используемого кода.</p>
+</body>
+</html>
