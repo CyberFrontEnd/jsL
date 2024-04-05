@@ -209,5 +209,131 @@
 
 <p>Функции высшего порядка являются фундаментальной концепцией в функциональном программировании и широко используются в JavaScript для написания чистого, поддерживаемого и
     повторно используемого кода.</p>
+
+
+<h1>Примеры функций более высокого порядка в javascript</h1>
+
+<ol>
+    <li>
+        <p><b>map</b> применяет функцию к каждому элементу массива и возвращает новый массив с результатами.</p>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+                const doubled = numbers.map(x => x * 2);
+                console.log(doubled); // Output: [2, 4, 6, 8, 10]
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p><b>filter:</b> filter создает новый массив со всеми элементами, которые проходят тест, реализованный предоставленной функцией.</p>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+                const evenNumbers = numbers.filter(x => x % 2 === 0);
+                console.log(evenNumbers); // Output: [2, 4]
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p><b>reduce:</b> reduce применяет функцию к аккумулятору и каждому элементу в массиве (слева направо), чтобы уменьшить его до одного значения.</p>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+                const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+                console.log(sum); // Output: 15
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p><b>forEach:</b> forEach выполняет предоставленную функцию один раз для каждого элемента массива.</p>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+                numbers.forEach(x => console.log(x * 2)); // Output: 2, 4, 6, 8, 10
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p><b>forEach:</b> forEach выполняет предоставленную функцию один раз для каждого элемента массива.</p>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+                numbers.forEach(x => console.log(x * 2)); // Output: 2, 4, 6, 8, 10
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p><b>sort</b>  сортирует элементы массива по месту и возвращает отсортированный массив. Порядок сортировки по умолчанию - по возрастанию.</p>
+        <strong>
+            <xmp>
+                const fruits = ['banana', 'apple', 'orange', 'grape'];
+                const sortedFruits = fruits.sort();
+                console.log(sortedFruits); // Output: ['apple', 'banana', 'grape', 'orange']
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p><b>Композиция функций:</b> объединение функций для создания новых функций.</p>
+        <strong>
+            <xmp>
+                const add = x => x + 2;
+                const multiply = x => x * 3;
+
+                const addThenMultiply = x => multiply(add(x));
+                console.log(addThenMultiply(5)); // Output: 21
+            </xmp>
+        </strong>
+    </li>
+</ol>
+
+
+<script>
+  //   Callback function
+  //   function greetMorning (name) {
+  //     const myName = 'john';
+  //     console.log(`Goon morning ${name}, my name is ${myName}`);
+  //   }
+  //
+  //   function greetAfternoon (name) {
+  //     const myName = 'susan';
+  //     console.log(`Goon afternoon ${name}, my name is ${myName}`);
+  //   }
+  //
+  //   greetMorning('bobo');
+  //   greetAfternoon('peter');
+
+
+  // Весь смысл функции обратного вызова заключается в том факте, что вы можете решить в теле функции, когда и где вы будете его вызывать.
+  // Итак, если я захочу разместить его вверху, я могу вызвать его вверху.
+  // Если я хочу это прямо здесь, я могу вызвать это полностью внизу.
+  // идет речь о функции cd()
+  // Теперь функция высокого порядка - это та, которая принимает функцию.
+  // Что такое функция высокого порядка это та, которая принимает функцию либо может ее возврашать
+  function morning() {
+    console.log(`Goon morning Bob ${name.toUpperCase()}`);
+    return `Good morning bob`;
+  }
+
+  function afternoon () {
+    console.log(`Goon afternoon ${name.repeat(3)}`);
+    return `Good morning bob`;
+  }
+
+  // функция более высокого порядка
+  function greet (name, cd) {
+    const myName = 'john';
+    console.log(`${cd(name)}, my name is ${myName}`);
+    cd();
+  }
+
+  greet('bobo', morning);
+  greet('peter', afternoon);
+</script>
 </body>
 </html>

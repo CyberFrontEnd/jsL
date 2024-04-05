@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что делает метод map в js</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>что делает метод map в js</h1>
+
+<p>В JavaScript map() функция - это функция более высокого порядка, которая работает с массивами. Она используется для применения данной функции к каждому элементу массива и
+    возвращает новый массив с результатами. Исходный массив остается неизменным.</p>
+
+<h6>Вот базовый синтаксис map() функции:</h6>
+<strong>
+    <xmp>
+        array.map(function(currentValue, index, array) {
+        // Return element for new_array
+        }, thisArg);
+    </xmp>
+</strong>
+
+<p>function(currentValue, index, array): Это функция, которая будет применяться к каждому элементу массива. Она может принимать до трех параметров:</p>
+<ol>
+    <li>
+        <p>currentValue: Текущий элемент, обрабатываемый в массиве.</p>
+    </li>
+
+    <li>
+        <p>index (необязательно): индекс текущего обрабатываемого элемента в массиве.</p>
+    </li>
+
+    <li>
+        <p>array (необязательно): был вызван массив map().</p>
+    </li>
+</ol>
+
+<p>thisArg (необязательно): Это значение для использования как this при выполнении функции обратного вызова. Если опущено, используется undefined.</p>
+
+<p>Функция map() выполняет итерацию по каждому элементу массива, вызывая предоставленную функцию один раз для каждого элемента, и создает новый массив с результатами вызова функции
+    для каждого элемента.</p>
+
+<strong>
+    <xmp>
+        const numbers = [1, 2, 3, 4, 5];
+
+        const doubledNumbers = numbers.map(function(num) {
+        return num * 2;
+        });
+
+        console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+    </xmp>
+</strong>
+<p>В этом примере map() функция удваивает каждое число в numbers массиве и возвращает новый массив, doubledNumbers содержащий удвоенные значения.</p>
+
+<h2>примеры метода map в js</h2>
+
+<ol>
+    <li>
+        <h4>Удвоение чисел:</h4>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+
+                const doubledNumbers = numbers.map(function(num) {
+                return num * 2;
+                });
+
+                console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Извлечение значений из объектов:</h4>
+        <strong>
+            <xmp>
+                const people = [
+                { name: 'John', age: 30 },
+                { name: 'Alice', age: 25 },
+                { name: 'Bob', age: 40 }
+                ];
+
+                const names = people.map(function(person) {
+                return person.name;
+                });
+
+                console.log(names); // Output: ['John', 'Alice', 'Bob']
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Преобразование строк в верхний регистр:</h4>
+        <strong>
+            <xmp>
+                const words = ['hello', 'world', 'javascript'];
+
+                const upperCaseWords = words.map(function(word) {
+                return word.toUpperCase();
+                });
+
+                console.log(upperCaseWords); // Output: ['HELLO', 'WORLD', 'JAVASCRIPT']
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Вычисление квадратных корней:</h4>
+        <strong>
+            <xmp>
+                const numbers = [4, 9, 16, 25];
+
+                const squareRoots = numbers.map(function(num) {
+                return Math.sqrt(num);
+                });
+
+                console.log(squareRoots); // Output: [2, 3, 4, 5]
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Отображение с функциями стрелки (ES6):</h4>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+
+                const squaredNumbers = numbers.map(num => num ** 2);
+
+                console.log(squaredNumbers); // Output: [1, 4, 9, 16, 25]
+            </xmp>
+        </strong>
+    </li>
+</ol>
+
+<p>Эти примеры демонстрируют различные варианты использования map() метода, от простых математических операций до извлечения определенных свойств из объектов и преобразования
+    элементов в различные форматы.</p>
+
+<h1>в чем разница между методами .forEach() и .map() в js</h1>
+<p>В JavaScript оба .forEach() и .map() являются методами, используемыми для перебора массивов. Однако они служат несколько иным целям:</p>
+
+<ol>
+    <li>
+        <p>.forEach(): Этот метод используется для выполнения предоставленной функции один раз для каждого элемента в массиве по порядку. Он не создает новый массив. В основном
+            используется, когда вы хотите выполнить операцию с учетом ее побочных эффектов (например, обновление переменных вне цикла, изменение элементов в исходном массиве).</p>
+
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+                numbers.forEach(number => {
+                console.log(number * 2);
+                });
+                // Output:
+                // 2
+                // 4
+                // 6
+                // 8
+                // 10
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>.map(): Этот метод создает новый массив, заполненный результатами вызова предоставленной функции для каждого элемента в вызывающем массиве. Он возвращает новый массив
+            той же длины, что и исходный массив, но с преобразованием каждого элемента на основе предоставленной функции.</p>
+
+        <strong>
+            const numbers = [1, 2, 3, 4, 5];
+            const doubledNumbers = numbers.map(number => number * 2);
+            console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+        </strong>
+    </li>
+</ol>
+
+<p>Вкратце, .forEach() используется, когда вы хотите выполнить итерацию по массиву и выполнить некоторые действия для его побочных эффектов, в то время как .map() используется,
+    когда вы хотите преобразовать каждый элемент массива и создать новый массив с преобразованными элементами.</p>
+
+
+<p>И я могу честно сказать, что что касается приложений, вы будете часто использовать map в ванильных приложениях JavaScript а также react или любой другой фреймворк, потому что он
+    настолько мощный.</p>
+
+<p>И способ работы map заключается в том, что он возвращает новый массив. В отличие от каждого из них, он возвращает новый массив.</p>
+
+
+<script>
+  const people = [
+    {name: 'bob', age: 30, position: 'developer',},
+    {name: 'peter', age: 25, position: 'design',},
+    {name: 'susy', age: 24, position: 'the boss',}
+  ];
+
+  const ages = people.map(function (person) {
+    // console.log(person);
+    return person.age
+  });
+
+  console.log(ages);
+
+  const newPeople = people.map(function (person) {
+    // console.log(person);
+    return {
+      firstName:person.name.toUpperCase(),
+      oldAge:person.age + 20
+    }
+  });
+
+  console.log(newPeople);
+
+  // извлечь из массива и вставить h1
+  const names = people.map(function (person) {
+    return `<h1>${person.name}</h1>`
+  });
+
+  // document.body.innerHTML = names.join();
+  console.log(names);
+</script>
+</body>
+</html>

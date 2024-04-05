@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что делает метод filter в js</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>что делает метод filter в js</h1>
+
+<p>В JavaScript метод filter() используется для фильтрации элементов массива на основе определённого условия и создания нового массива, содержащего только те элементы, для которых
+    условие истинно. Этот метод не изменяет исходный массив, а возвращает новый массив с отфильтрованными элементами.</p>
+
+<h6>Синтаксис метода filter() выглядит так:</h6>
+<strong>
+    <xmp>
+        let newArray = array.filter(callback(element[, index[, array]])[, thisArg])
+    </xmp>
+</strong>
+
+<p>function(currentValue, index, array): Это функция, которая будет применяться к каждому элементу массива. Она может принимать до трех параметров:</p>
+<ol>
+    <li>
+        <p>callback - это функция, которая будет вызвана для каждого элемента массива. Она должна возвращать true, чтобы элемент остался в новом массиве, или false, чтобы элемент
+            был исключён.</p>
+    </li>
+
+    <li>
+        <p>element - текущий обрабатываемый элемент массива.</p>
+    </li>
+
+    <li>
+        <p>array (необязательный) - сам массив, который был пройден.</p>
+    </li>
+
+    <li>
+        <p>thisArg (необязательный) - значение, используемое как this при вызове callback.</p>
+    </li>
+
+</ol>
+
+<strong>
+    <xmp>
+        let numbers = [1, 2, 3, 4, 5, 6];
+        let evenNumbers = numbers.filter(function(num) {
+        return num % 2 === 0;
+        });
+
+        console.log(evenNumbers); // Output: [2, 4, 6]
+    </xmp>
+</strong>
+<p>В этом примере массив evenNumbers будет содержать только чётные числа из массива numbers, потому что функция обратного вызова возвращает true только для чётных чисел.</p>
+
+<h2>примеры метода filter() в js</h2>
+
+<ol>
+    <li>
+        <h4>Фильтрация массива чисел для получения только четных чисел:</h4>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5, 6];
+                const evenNumbers = numbers.filter(num => num % 2 === 0);
+                console.log(evenNumbers); // Output: [2, 4, 6]
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Фильтрация массива строк для получения только тех, которые начинаются с определенной буквы:</h4>
+        <strong>
+            <xmp>
+                const fruits = ['apple', 'banana', 'orange', 'kiwi', 'grape'];
+                const fruitsStartingWithA = fruits.filter(fruit => fruit.startsWith('a'));
+                console.log(fruitsStartingWithA); // Output: ['apple']
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Фильтрация массива объектов на основе свойства:</h4>
+        <strong>
+            <xmp>
+                const people = [
+                { name: 'John', age: 30 },
+                { name: 'Alice', age: 25 },
+                { name: 'Bob', age: 35 },
+                { name: 'Eve', age: 40 }
+                ];
+
+                const peopleOverThirty = people.filter(person => person.age > 30);
+                console.log(peopleOverThirty); // Output: [{ name: 'Bob', age: 35 }, { name: 'Eve', age: 40 }]
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Отфильтровывание нулевых или неопределенных значений из массива:</h4>
+        <strong>
+            <xmp>
+                const mixedArray = [1, null, 'apple', undefined, 5, 'banana'];
+                const filteredArray = mixedArray.filter(item => item !== null && item !== undefined);
+                console.log(filteredArray); // Output: [1, 'apple', 5, 'banana']
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Использование аргумента index для фильтрации повторяющихся элементов:</h4>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 2, 4, 5, 4, 6];
+                const uniqueNumbers = numbers.filter((num, index, array) => array.indexOf(num) === index);
+                console.log(uniqueNumbers); // Output: [1, 2, 3, 4, 5, 6]
+            </xmp>
+        </strong>
+    </li>
+</ol>
+
+<p>Эти примеры демонстрируют различные варианты использования filter() метода для извлечения определенных элементов из массивов на основе различных условий.</p>
+
+<h1>в чем разница между методами .forEach() и .map() в js</h1>
+<p>В JavaScript оба .forEach() и .map() являются методами, используемыми для перебора массивов. Однако они служат несколько иным целям:</p>
+
+<ol>
+    <li>
+        <p>forEach():</p>
+        <p>Назначение: forEach() Метод выполняет итерацию по каждому элементу в массиве и позволяет вам выполнить указанное действие для каждого элемента.</p>
+        <p>Поведение: он не создает новый массив; вместо этого он выполняет предоставленную функцию один раз для каждого элемента массива.</p>
+        <p>Использование: Обычно используется, когда вы хотите выполнить определенную операцию над каждым элементом массива без изменения самого массива.</p>
+
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4];
+                numbers.forEach(number => console.log(number * 2)); // Output: 2, 4, 6, 8
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>map():</p>
+
+        <p>Назначение: map() Метод создает новый массив путем применения функции к каждому элементу в исходном массиве и сбора результатов.</p>
+        <p>Поведение: возвращает новый массив с результатами вызова предоставленной функции для каждого элемента в вызывающем массиве.</p>
+        <p>Использование: Обычно используется, когда вы хотите преобразовать каждый элемент массива определенным образом и собрать результаты в новый массив.</p>
+        <strong>
+            const numbers = [1, 2, 3, 4];
+            const doubledNumbers = numbers.map(number => number * 2);
+            console.log(doubledNumbers); // Output: [2, 4, 6, 8]
+        </strong>
+    </li>
+
+    <li>
+        <p>filter():</p>
+        <p>Назначение: filter() Метод создает новый массив со всеми элементами, которые проходят тест, реализованный provide</p>
+        <p>Поведение: возвращает новый массив с элементами, удовлетворяющими условию, указанному в функции обратного вызова.</p>
+        <p>Назначение: filter() Метод создает новый массив со всеми элементами, которые проходят тест, реализованный provide</p>
+
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4];
+                const evenNumbers = numbers.filter(number => number % 2 === 0);
+                console.log(evenNumbers); // Output: [2, 4]
+            </xmp>
+        </strong>
+    </li>
+</ol>
+
+<p>Вкратце, forEach() предназначен для выполнения функции над каждым элементом массива без создания нового массива, map() предназначен для преобразования каждого элемента массива и
+    сбораfilter() предназначен для создания нового массива, содержащего только элементы, удовлетворяющие указанному условию.</p>
+
+
+<script>
+  const people = [
+    {name: 'bob', age: 30, position: 'developer',},
+    {name: 'peter', age: 25, position: 'design',},
+    {name: 'susy', age: 24, position: 'the boss',}
+  ];
+
+  const ages = people.map(function (person) {
+    // console.log(person);
+    return person.age
+  });
+
+  console.log(ages);
+
+  const newPeople = people.map(function (person) {
+    // console.log(person);
+    return {
+      firstName: person.name.toUpperCase(),
+      oldAge: person.age + 20
+    }
+  });
+
+  console.log(newPeople);
+
+  // извлечь из массива и вставить h1
+  const names = people.map(function (person) {
+    return `<h1>${person.name}</h1>`
+  });
+
+  // document.body.innerHTML = names.join();
+  console.log(names);
+</script>
+</body>
+</html>

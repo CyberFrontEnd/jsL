@@ -50,7 +50,8 @@
 </strong>
 
 <i>Результат</i>
-<p>1
+<p>
+    1
     2
     3
     4
@@ -71,6 +72,24 @@
     item.addEventListener('click', () => {
       alert('this is awesome')
     })
+  });
+
+  const people = [
+    {name: 'bob', age: 30, position: 'developer',},
+    {name: 'peter', age: 25, position: 'design',},
+    {name: 'susy', age: 24, position: 'the boss',}
+  ];
+
+  function showPerson(person) {
+    console.log(person.position.toUpperCase());
+  }
+
+  // 1 Вариант
+  // people.forEach(showPerson)
+
+  // 2 Вариант
+  people.forEach(function (item) {
+    console.log(item.position.toUpperCase());
   })
 </script>
 </body>
