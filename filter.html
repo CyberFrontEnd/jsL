@@ -177,30 +177,19 @@
     {name: 'susy', age: 24, position: 'the boss',}
   ];
 
-  const ages = people.map(function (person) {
-    // console.log(person);
-    return person.age
+  // Вызывает не старше 25 лет
+  const youngPeople = people.filter(function (person) {
+    return person.age <= 25
   });
 
-  console.log(ages);
+  // Вызывает всех кого равен developer
+  const developers = people.filter(function (person) {
+    return person.position === 'developer'
+  })
 
-  const newPeople = people.map(function (person) {
-    // console.log(person);
-    return {
-      firstName: person.name.toUpperCase(),
-      oldAge: person.age + 20
-    }
-  });
-
-  console.log(newPeople);
-
-  // извлечь из массива и вставить h1
-  const names = people.map(function (person) {
-    return `<h1>${person.name}</h1>`
-  });
-
-  // document.body.innerHTML = names.join();
-  console.log(names);
+  console.log(developers);
+  
+  console.log(youngPeople);
 </script>
 </body>
 </html>

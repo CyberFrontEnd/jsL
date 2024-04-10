@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что делает метод reduce в js</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>что делает метод reduce в js</h1>
+
+<p>Метод reduce() в JavaScript используется для сведения массива к одному значению. Он выполняет предоставленную функцию обратного вызова для каждого элемента массива, в результате
+    чего получается одно выходное значение. Этот метод выполняет итерацию по массиву слева направо, накапливая единственный результат путем применения функции обратного вызова к
+    каждому элементу.</p>
+
+<h6>Вот синтаксис метода reduce():</h6>
+<strong>
+    <xmp>
+        array.reduce(callback(accumulator, currentValue, currentIndex, array), initialValue)
+    </xmp>
+</strong>
+
+<ol>
+    <li>
+        <p>callback: Функция, выполняемая для каждого элемента массива. Принимает четыре аргумента:</p>
+    </li>
+
+    <li>
+        <p>accumulator: Накопленное значение, ранее возвращенное обратным вызовом, или initialValue, если указано. Он накапливает возвращаемые обратным вызовом значения.</p>
+    </li>
+
+    <li>
+        <p>currentValue: Текущий элемент, обрабатываемый в массиве.</p>
+    </li>
+
+    <li>
+        <p>currentIndex (необязательно): индекс текущего обрабатываемого элемента в массиве.</p>
+    </li>
+
+    <li>
+        <p>array (необязательно): Был вызван массив reduce().</p>
+    </li>
+</ol>
+
+<p>initialValue (необязательно): значение для использования в качестве начального значения для накопителя. Если не указано, в качестве начального значения накопителя будет
+    использоваться первый элемент массива, и итерация начнется со второго элемента.</p>
+
+<p>Метод reduce() выполняет функцию обратного вызова один раз для каждого элемента, присутствующего в массиве, за исключением первого элемента, если он предоставлен initialValue.
+    Он принимает возвращаемое значение обратного вызова и использует его в качестве накопительного значения для следующей итерации. Наконец, он возвращает накопленный результат
+    после перебора всего массива.</p>
+
+<strong>
+    <xmp>
+        const numbers = [1, 2, 3, 4, 5];
+
+        const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        console.log(sum); // Output: 15 (1 + 2 + 3 + 4 + 5)
+    </xmp>
+</strong>
+<p>accumulator Начинается с начального значения 0.</p>
+<p>Функция обратного вызова добавляет каждый из них currentValue в accumulator.</p>
+<p>После перебора всех элементов массива в качестве выходных данных возвращается конечное накопленное значение (15).</p>
+
+<h2>примеры метода reduce() в js</h2>
+
+<ol>
+    <li>
+        <h4>Суммирование элементов массива:</h4>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+
+                const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+                console.log(sum); // Output: 15 (1 + 2 + 3 + 4 + 5)
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Вычисление произведения элементов массива:</h4>
+        <strong>
+            <xmp>
+                const numbers = [1, 2, 3, 4, 5];
+
+                const product = numbers.reduce((accumulator, currentValue) => accumulator * currentValue, 1);
+                console.log(product); // Output: 120 (1 * 2 * 3 * 4 * 5)
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Выравнивание массива массивов:</h4>
+        <strong>
+            <xmp>
+                const nestedArray = [[1, 2], [3, 4], [5, 6]];
+
+                const flattenedArray = nestedArray.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
+                console.log(flattenedArray); // Output: [1, 2, 3, 4, 5, 6]
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Подсчет вхождений элементов в массив:</h4>
+        <strong>
+            <xmp>
+                const colors = ['red', 'blue', 'red', 'green', 'blue', 'red'];
+
+                const colorCount = colors.reduce((accumulator, currentValue) => {
+                accumulator[currentValue] = (accumulator[currentValue] || 0) + 1;
+                return accumulator;
+                }, {});
+                console.log(colorCount); // Output: { red: 3, blue: 2, green: 1 }
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h4>Группировка объектов по свойству:</h4>
+        <strong>
+            <xmp>
+                const people = [
+                { name: 'Alice', age: 30 },
+                { name: 'Bob', age: 25 },
+                { name: 'Charlie', age: 35 },
+                { name: 'David', age: 30 }
+                ];
+
+                const groupedByAge = people.reduce((accumulator, currentValue) => {
+                const key = currentValue.age;
+                if (!accumulator[key]) {
+                accumulator[key] = [];
+                }
+                accumulator[key].push(currentValue);
+                return accumulator;
+                }, {});
+                console.log(groupedByAge);
+                /* Output:
+                {
+                30: [ { name: 'Alice', age: 30 }, { name: 'David', age: 30 } ],
+                25: [ { name: 'Bob', age: 25 } ],
+                35: [ { name: 'Charlie', age: 35 } ]
+                }
+                */
+            </xmp>
+        </strong>
+    </li>
+</ol>
+
+<p>Эти примеры демонстрируют различные варианты использования reduce() метода в JavaScript, от простых арифметических операций до более сложных задач, таких как выравнивание
+    массивов или группировка объектов.</p>
+
+
+<script>
+  const people = [
+    {name: 'bob', age: 30, position: 'developer', id: 1, salary: 200},
+    {name: 'peter', age: 25, position: 'design', id: 2, salary: 300},
+    {name: 'susy', age: 24, position: 'the boss', id: 3, salary: 400},
+    {name: 'anna', age: 34, position: 'boss', id: 4, salary: 500}
+  ];
+
+  const total = people.reduce(function (acc, currItem) {
+    console.log(`total ${acc}`);
+    console.log(`Curent money: ${currItem.salary}`);
+    acc += currItem.salary
+    return acc;
+  }, 0);
+  
+  console.log(total);
+
+</script>
+</body>
+</html>
