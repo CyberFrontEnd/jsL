@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задача с массивами</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>Задача с массивами</h1>
+
+<script>
+    const students = [
+      {
+        id: 1,
+        name: 'peter',
+        score: 80,
+        favoriteSubject: 'math'
+      },
+      {
+        id: 2,
+        name: 'susan',
+        score: 99,
+        favoriteSubject: 'history'
+      },
+      {
+        id: 3,
+        name: 'anna',
+        score: 85,
+        favoriteSubject: 'math'
+      },
+      {
+        id: 4,
+        name: 'john',
+        score: 34,
+        favoriteSubject: 'art'
+      },
+      {
+        id: 5,
+        name: 'bobo',
+        score: 74,
+        favoriteSubject: 'math'
+      }
+    ];
+    
+    function sayName(name) {
+      console.log(name);
+    }
+
+    console.log(students);
+    sayName();
+
+    const updatedStudents = students.map(function (student) {
+      // console.log(student);
+      student.role = 'student';
+      return students;
+    });
+
+    // console.log(updatedStudents);
+
+    const highScores = students.filter(function (student) {
+      // if (student.score >= 80) {
+      //     return student;
+      // }
+
+      // if (student.score >= 80) return student;
+
+      return student.score >= 80
+    });
+
+    console.log(highScores);
+</script>
+</body>
+</html>
