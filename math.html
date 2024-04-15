@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Объект Math</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h2>Объект Math</h2>
+
+<ol>
+    <li>
+        <h2>Math.abs(x): возвращает абсолютное значение числа.</h2>
+        <b>
+            <xmp>
+                Math.abs(-10); // returns 10
+            </xmp>
+        </b>
+    </li>
+
+    <li>
+        <h2>Математический round(x): возвращает значение числа, округленное до ближайшего целого числа.</h2>
+        <b>
+            <xmp>
+                Math.round(4.7); // returns 5
+            </xmp>
+        </b>
+    </li>
+
+    <li>
+        <h2>Math.ceil(x): возвращает наименьшее целое число, большее или равное числу.</h2>
+        <b>
+            <xmp>
+                Math.ceil(4.3); // returns 5
+            </xmp>
+        </b>
+    </li>
+
+    <li>
+        <h2>Math.floor(x): возвращает наибольшее целое число, меньшее или равное числу.</h2>
+        <b>
+            <xmp>
+                Math.floor(4.7); // returns 4
+            </xmp>
+        </b>
+    </li>
+
+    <li>
+        <h2>Math.max(x1, x2, ..., xn): возвращает наибольшее из нуля или более чисел.</h2>
+        <b>
+            <xmp>
+                Math.max(10, 20, 30); // returns 30
+            </xmp>
+        </b>
+    </li>
+
+    <li>
+        <h2>Math.min(x1, x2, ..., xn): возвращает наименьшее из нулевых или более чисел.</h2>
+        <b>
+            <xmp>
+                Math.min(10, 20, 30); // returns 10
+            </xmp>
+        </b>
+    </li>
+
+    <li>
+        <h2>Math.random(): Возвращает случайное число с плавающей запятой в диапазоне от 0 (включительно) до 1 (без учета).</h2>
+        <b>Math.random(); // returns a random number between 0 and 1</b>
+    </li>
+
+    <li>
+        <h2>Math.pow(x, y): возвращает основание в степень экспоненты, то есть x ^y.</h2>
+        <b>
+            <xmp>
+                Math.pow(2, 3); // returns 8
+            </xmp>
+        </b>
+    </li>
+
+    <li>
+        <h2>Math.sqrt(x): возвращает квадратный корень из числа.</h2>
+        <b>
+            <xmp>
+                Math.sqrt(16); // returns 4
+            </xmp>
+        </b>
+    </li>
+
+    <li>
+        <h2>Math.sin(x), Math.cos(x), Math.tan(x): возвращает синус, косинус и тангенс числа (заданного в радианах) соответственно.</h2>
+        <b>
+            <xmp>Math.sin(Math.PI / 2); // returns 1 (sine of 90 degrees)</xmp>
+        </b>
+    </li>
+</ol>
+
+<p>Это всего лишь несколько примеров методов, доступных в Math объекте в JavaScript. Существует больше методов для выполнения других математических операций, тригонометрических
+    функций, логарифмических функций и т.д.</p>
+
+<script>
+  // const number = 4.56789;
+  // const result = Math.floor(number);
+
+  // const number = 4.12222;
+  // const result = Math.ceil(number);
+
+  // const number = 4.12222;
+  // const result = Math.sqrt(number);
+
+
+  // const result = Math.min(4,5,6,7,9);
+  // const resultMax = Math.max(4,5,6,7,9,100,1000,100000);
+
+  const result = Math.floor(Math.random() * 9 + 1);
+  console.log(result);
+</script>
+
+</body>
+</html>
