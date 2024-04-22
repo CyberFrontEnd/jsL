@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>основы vanilla javascript его экосистемы</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+<h1>все о модели DOM в javascript</h1>
+
+<h1>все о модели DOM в javascript</h1>
+<p>Объектная модель документа (DOM) в JavaScript - это программный интерфейс, который представляет структуру веб-страницы в виде иерархической древовидной структуры. Это позволяет
+    разработчикам взаимодействовать с элементами веб-страницы и динамически манипулировать ее содержимым, структурой и стилем.</p>
+
+<ol>
+    <li>
+        <h2>Императивное программирование: </h2>
+        <p>В этой парадигме программы состоят из последовательности инструкций, которые изменяют состояние программы. Распространенные императивные языки включают C, Pascal и
+            BASIC.</p>
+
+        <ol>
+            <li>
+                <h3>Печать чисел от 1 до 10:</h3>
+                <strong>
+                    <xmp>
+                        for (let i = 1; i <= 10; i++) {
+                        console.log(i);
+                        }
+                    </xmp>
+                </strong>
+            </li>
+
+            <li>
+                <h3>Сумма чисел в массиве:</h3>
+                <strong>
+                    <xmp>
+                        const numbers = [1, 2, 3, 4, 5];
+                        let sum = 0;
+                        for (let i = 0; i < numbers.length; i++) {
+                        sum += numbers[i];
+                        }
+                        console.log("Sum:", sum);
+                    </xmp>
+                </strong>
+            </li>
+
+            <li>
+                <h3>Поиск максимального числа в массиве:</h3>
+                <strong>
+                    <xmp>
+                        const numbers = [5, 8, 2, 10, 3];
+                        let maxNum = numbers[0];
+                        for (let i = 1; i < numbers.length; i++) {
+                        if (numbers[i] > maxNum) {
+                        maxNum = numbers[i];
+                        }
+                        }
+                        console.log("Maximum number:", maxNum);
+                    </xmp>
+                </strong>
+            </li>
+
+            <li>
+                <h3>Переворачивание строки:</h3>
+                <strong>
+                    <xmp>
+                        let string = "hello";
+                        let reversedString = "";
+                        for (let i = string.length - 1; i >= 0; i--) {
+                        reversedString += string[i];
+                        }
+                        console.log("Reversed string:", reversedString);
+                    </xmp>
+                </strong>
+            </li>
+        </ol>
+        <p>В JavaScript императивное программирование включает использование циклов, условных выражений и присваиваний для непосредственного управления состоянием программы и
+            потоком выполнения. Каждый оператор точно определяет, что программа должна делать шаг за шагом.</p>
+    </li>
+
+    <li>
+
+    </li>
+</ol>
+</body>
+</html>
