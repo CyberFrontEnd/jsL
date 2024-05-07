@@ -1,7 +1,7 @@
 html, body {
   font-family: 'Gotham Pro', sans-serif;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 18px;
   min-width: 320px;
   scroll-behavior: smooth;
   background-color: gray;
@@ -68,4 +68,15 @@ i {
 .listFlex ol {
   max-width: 330px;
   width: 100%;
+}
+
+xmp {
+  color: #ffffff;
+  font-size: 25px;
+}
+
+ol,
+ol li span {
+  color: #ffffff;
+  font-size: 18px;
 }

@@ -2,20 +2,136 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Asynchronous javascript</title>
+    <title>какова функциональность и что делает async / Await в javascript?</title>
     <link rel="stylesheet" href="css/castom.css">
 </head>
 <body>
+<h1>какова функциональность и что делает async / Await в javascript?</h1>
+<p>В JavaScript async и await - это функции, представленные в ECMAScript 2017 (ES8), которые упрощают работу с асинхронным кодом и делают его более читаемым.</p>
 
-<h1>Asynchronous javascript</h1>
+<ol>
+    <li>
+        <p><b>Функциональность асинхронности: </b> Асинхронное программирование важно для обработки операций, требующих времени, таких как выборка данных с сервера, чтение файла
+            или ожидание ввода данных пользователем. До async и await разработчики в основном использовали обратные вызовы или promises для управления асинхронным кодом. Несмотря
+            на эффективность, эти методы часто приводили к "аду обратного вызова" или сложным цепочкам обещаний, что затрудняло чтение и поддержку кода. </p>
+    </li>
 
+    <li>
+        <p><b>Async/Await: </b> async Ключевое слово используется для объявления асинхронной функции. Асинхронная функция возвращает обещание, которое разрешается значением,
+            возвращенным асинхронной функцией, или отклоняется исключением, выданным асинхронной функцией.</p>
+    </li>
 
+    <li>
+        <strong>
+            <xmp>async function fetchData() {
+                // Asynchronous operation, e.g., fetching data from an API
+                const response = await fetch('https://api.example.com/data');
+                const data = await response.json();
+                return data;
+                }
+            </xmp>
+        </strong>
+    </li>
 
+    <li>
+        <p>Внутри асинхронной функции ключевое слово await используется для приостановки выполнения функции до тех пор, пока не будет выполнено обещание. По сути, это делает
+            асинхронный код более похожим на синхронный код и упрощает его выполнение.</p>
+    </li>
 
+    <li>
+        <p>С помощью await вы можете дождаться разрешения обещания, прежде чем переходить к следующей строке кода. Это помогает избежать глубоко вложенных обратных вызовов или
+            длинных цепочек обещаний.</p>
+    </li>
 
+    <li>
+        <p>await может использоваться только внутри асинхронной функции. Однако вы можете использовать async функции в сочетании с другими асинхронными шаблонами, такими как
+            Promise.all() для одновременного управления несколькими асинхронными операциями.</p>
+    </li>
 
-<script>
+    <li>
+        <p>async функции также упрощают обработку ошибок. Вы можете использовать try/catch блоки для обнаружения и обработки ошибок в асинхронной функции.</p>
+    </li>
 
-</script>
+    <li>
+        <p>В целом, async и await обеспечивают более интуитивно понятный и читаемый способ работы с асинхронным кодом в JavaScript, снижая сложность и улучшая ремонтопригодность
+            кода.</p>
+    </li>
+</ol>
+
+<h2>Примеры async / Await в javascript</h2>
+<ol>
+    <li>
+        <h3>Извлечение данных из API:</h3>
+        <strong>
+            <xmp>
+                async function fetchData() {
+                try {
+                const response = await fetch('https://api.example.com/data');
+                const data = await response.json();
+                console.log(data);
+                } catch (error) {
+                console.error('Error fetching data:', error);
+                }
+                }
+
+                fetchData();
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h3>Несколько асинхронных операций:</h3>
+        <strong>
+            <xmp>
+                async function fetchMultipleData() {
+                try {
+                const [userData, postsData] = await Promise.all([
+                fetch('https://api.example.com/users'),
+                fetch('https://api.example.com/posts')
+                ]);
+
+                const userDataJson = await userData.json();
+                const postsDataJson = await postsData.json();
+
+                console.log('Users:', userDataJson);
+                console.log('Posts:', postsDataJson);
+                } catch (error) {
+                console.error('Error fetching data:', error);
+                }
+                }
+
+                fetchMultipleData();
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h3>Асинхронная функция с обработкой ошибок:</h3>
+        <strong>
+            <xmp>
+                async function fetchDataWithRetry(url, maxRetries = 3) {
+                for (let i = 0; i < maxRetries; i++) {
+                try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data;
+                } catch (error) {
+                console.error(`Error fetching data from ${url}:`, error);
+                // Retry after 1 second
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                }
+                }
+                throw new Error(`Failed to fetch data from ${url} after ${maxRetries} attempts`);
+                }
+
+                fetchDataWithRetry('https://api.example.com/data')
+                .then(data => console.log('Data:', data))
+                .catch(error => console.error('Final error:', error));
+            </xmp>
+        </strong>
+    </li>
+</ol>
+<p>Эти примеры демонстрируют, как async функции в сочетании с await делают асинхронный код более читаемым и управляемым, а также упрощают обработку ошибок.</p>
+
 </body>
 </html>

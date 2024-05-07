@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что такое функциональный setTimeout в javascript</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>что такое функциональный setTimeout в javascript</h1>
+<p>Функция setTimeout() в JavaScript используется для выполнения указанной функции или фрагмента кода по истечении заданного промежутка времени. Ее синтаксис таков:</p>
+<p>Типа задержки исполнения функции или фрагмента кода</p>
+
+<strong>
+    <xmp>  setTimeout(function, milliseconds, param1, param2, ...)</xmp>
+</strong>
+
+<ol>
+    <li>
+        <span><b>function:</b> Функция или фрагмент кода, который должен быть выполнен.</span>
+    </li>
+
+    <li>
+        <span><b>milliseconds:</b> Время в миллисекундах, по истечении которого функция должна быть выполнена.</span>
+    </li>
+    
+    <li>
+        <span><b>param1, param2,</b> ...: Необязательные дополнительные параметры, которые должны быть переданы функции.</span>
+    </li>
+</ol>
+
+<p>Например, для выполнения функции, вызванной myFunction через 1000 миллисекунд (1 секунда), вы должны использовать:</p>
+<strong>
+    <xmp>  setTimeout(myFunction, 1000);</xmp>
+</strong>
+
+<p>Вы также можете передавать параметры функции:</p>
+<strong>
+  <xmp>function myFunction(param1, param2) {
+   console.log(param1 + param2);
+   }
+
+   setTimeout(myFunction, 1000, "Hello, ", "world!");
+  </xmp>
+</strong>
+
+<p>Через 1 секунду на консоль будет выведено сообщение "Привет, мир!".</p>
+
+
+</body>
+</html>
