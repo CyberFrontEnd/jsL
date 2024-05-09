@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+<h1>что делает XMLHttpRequest в javascript</h1>
+
+<p>XMLHttpRequest в JavaScript это объект, используемый для асинхронного взаимодействия с серверами. Он позволяет вам отправлять HTTP-запросы к серверу без необходимости
+    перезагрузки страницы. Это означает, что вы можете обновлять части веб-страницы новыми данными без необходимости полного обновления страницы.</p>
+
+<ol>
+    <li>
+        <span>что делает XMLHttpRequest в javascript var xhr = new XMLHttpRequest();</span>
+        <strong>
+            <xmp>var xhr = new XMLHttpRequest();</xmp>
+        </strong>
+    </li>
+
+    <li>
+        <span><b>Открытие соединения:</b> Вы указываете тип запроса (GET, POST и т.д.) и URL, на который хотите отправить запрос.</span>
+        <strong>
+            <xmp>xhr.open('GET', 'https://example.com/data', true);</xmp>
+        </strong>
+        <span>Третий параметр (true в данном случае) указывает, должен ли запрос быть асинхронным (true) или синхронным (false).</span>
+    </li>
+
+    <li>
+        <span><b>Отправка запроса: </b> Вы отправляете запрос на сервер.</span>
+        <strong>
+            <xmp>xhr.send();</xmp>
+        </strong>
+    </li>
+
+    <li>
+        <span><b>Обработка ответа: </b> вы определяете функцию для обработки ответа от сервера.</span>
+        <strong>
+            <xmp>
+                xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                // Request was successful, handle the response here
+                console.log(xhr.responseText);
+                } else {
+                // There was an error
+                console.error('Request failed: ' + xhr.status);
+                }
+                }
+                };
+            </xmp>
+        </strong>
+    </li>
+</ol>
+
+<p>Эта функция будет вызываться всякий раз, когда readyState свойство XMLHttpRequest объекта изменяется. Когда запрос будет завершен (readyState есть XMLHttpRequest.DONE), вы
+    можете проверить status свойство, чтобы узнать, был ли запрос успешным.</p>
+
+<p>XMLHttpRequest обычно используется в AJAX (Асинхронный JavaScript и XML) для извлечения данных с сервера и обновления частей веб-страницы без перезагрузки всей страницы. Однако
+    в настоящее время fetch() API часто предпочитают для выполнения HTTP-запросов из-за его более простого синтаксиса и лучшей поддержки promises.</p>
+</body>
+</html>
