@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Что такое функция выборки в javascript?</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+<h1>Что такое функция выборки в javascript?</h1>
+
+<p>Функция fetch() в JavaScript используется для выполнения сетевых запросов для извлечения ресурсов (таких, как данные JSON, изображения, файлы и т.д.) С сервера или другого
+    ресурса в сети. Это современная замена старым API, таким как XMLHttpRequest.</p>
+
+<p>Вот простой пример того, как вы могли бы использовать fetch() для выполнения запроса GET для извлечения данных JSON:</p>
+
+<strong>
+    <xmp>
+        fetch('https://api.example.com/data.json')
+        .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+        })
+        .then(data => {
+        console.log(data); // Do something with the JSON data
+        })
+        .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        });
+    </xmp>
+</strong>
+
+<h3>В этом примере:</h3>
+<ol>
+    <li>
+        <span>fetch('https://api.example.com/data.json') инициирует GET-запрос на указанный URL-адрес.</span>
+    </li>
+
+    <li>
+        <span>.then(response => { ... }) обрабатывает ответ от сервера.</span>
+    </li>
+
+    <li>
+        <span>Внутри первого .then() блока мы проверяем, прошел ли ответ успешно, используя response.ok. Если это не так, мы выдаем ошибку.</span>
+    </li>
+
+    <li>
+        <span>Если с ответом все в порядке, мы анализируем тело ответа как JSON с помощью response.json() , который возвращает обещание, содержащее проанализированные данные JSON.</span>
+    </li>
+
+    <li>
+        <span>Затем у нас есть еще один .then() блок, где мы можем использовать данные JSON.</span>
+    </li>
+
+    <li>
+        <span>Если во время операции выборки возникают какие-либо ошибки, они фиксируются в .catch() блоке.</span>
+    </li>
+</ol>
+</body>
+</html>
