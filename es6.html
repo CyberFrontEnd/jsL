@@ -2,131 +2,119 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Литералы шаблонов ES6</title>
+    <title>Примеры ES6</title>
     <link rel="stylesheet" href="css/castom.css">
 </head>
 <body>
 
-<h1>Литералы шаблонов ES6</h1>
-
-<p>В ES6 JavaScript литералы шаблонов - это новый способ создания строк. Они упрощают интерполяцию строк, многострочные строки и встраивание выражений в строковые литералы.
-    Литералы шаблона разделяются обратными метками (`), в отличие от одинарных (' ') или двойных (" ") кавычек, традиционно используемых для строковых литералов.</p>
+<h1>Примеры ES6</h1>
 
 <ol>
     <li>
-        <p>Вот простой пример литерала шаблона:</p>
-
+        <h3>Функции со стрелками:</h3>
         <strong>
             <xmp>
-                const name = 'John';
-                const greeting = `Hello, ${name}!`;
-                console.log(greeting); // Output: Hello, John!
-            </xmp>
-        </strong>
-        <p>В этом примере:</p>
-        <p><b>${name}</b> это выражение внутри литерала шаблона, которое вычисляется и интерполируется в строку.</p>
-        <p><b>Обратные метки (`)</b>используются для разграничения литерала шаблона.</p>
-    </li>
-
-    <li>
-        <p>Литералы шаблонов также поддерживают многострочные строки без использования управляющих символов:</p>
-    </li>
-
-    <li>
-        <strong>
-            <xmp>
-                const multilineString = `
-                This is a
-                multiline
-                string.
-                `;
-                console.log(multilineString);
-                // Output:
-                // This is a
-                // multiline
-                // string.
-            </xmp>
-        </strong>
-    </li>
-
-    <li>
-        <p>Вот как и где вы можете применить литералы шаблона:</p>
-        <p>Интерполяция строк: Когда вам нужно создавать строки динамически, особенно при включении переменных или выражений в строку.</p>
-        <strong>
-            <xmp>
-                const name = 'Alice';
-                const greeting = `Hello, ${name}!`;
-            </xmp>
-        </strong>
-    </li>
-
-    <li>
-        <p><b>Многострочные строки:</b> Когда вам нужно создать многострочные строки без необходимости их объединения вручную или использования символов новой строки.</p>
-        <strong>
-            <xmp>
-                const multilineString = `
-                This is a
-                multiline
-                string.
-                `;
-            </xmp>
-        </strong>
-    </li>
-
-    <li>
-        <p><b>HTML-шаблоны:</b> При работе с HTML-шаблонами вы можете использовать шаблонные литералы для упрощения создания динамического HTML-контента.</p>
-
-        <strong>
-            <xmp>
-                const item = {
-                name: 'Widget',
-                price: 10
+                // ES5
+                var multiply = function(x, y) {
+                return x * y;
                 };
 
-                const htmlTemplate = `
-                <div class="item">
-                    <h2>${item.name}</h2>
-                    <span>Price: $${item.price}</span>
-                </div>
-                `;
+                // ES6
+                const multiply = (x, y) => x * y;
             </xmp>
         </strong>
     </li>
 
     <li>
-        <p><b>Генерация повторяющихся структур: </b> Когда вам нужно генерировать повторяющиеся структуры, такие как элементы списка, использование шаблонных литералов с циклами
-            может быть довольно удобным.</p>
-
+        <h3>Литералы шаблона:(Конкатенация)</h3>
         <strong>
             <xmp>
-                const items = ['Apple', 'Banana', 'Orange'];
+                // ES5
+                var name = 'John';
+                console.log('Hello, ' + name + '!');
 
-                const listTemplate = `
-                <ul>
-                    ${items.map(item => `
-                    <li>${item}</li>
-                    `).join('')}
-                </ul>
-                `;
+                // ES6
+                const name = 'John';
+                console.log(`Hello, ${name}!`);
             </xmp>
         </strong>
     </li>
 
     <li>
-        <p>Литералы шаблонов обеспечивают более гибкий и читаемый способ работы со строками в JavaScript, особенно в сценариях, где традиционная конкатенация строк становится
-            громоздкой или менее читаемой.</p>
+        <h3>let и Const:</h3>
+        <strong>
+            <xmp>
+                // ES5
+                var x = 10;
+                x = 20;
+
+                // ES6
+                let x = 10;
+                const y = 20;
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h3>Классы:</h3>
+        <strong>
+        <xmp>
+            // ES5
+            function Person(name) {
+            this.name = name;
+            }
+
+            Person.prototype.sayHello = function() {
+            console.log('Hello, ' + this.name);
+            };
+
+            // ES6
+            class Person {
+            constructor(name) {
+            this.name = name;
+            }
+
+            sayHello() {
+            console.log(`Hello, ${this.name}`);
+            }
+            }
+        </xmp>
+        </strong>
+    </li>
+    
+    <li>
+        <h3>Назначение Де структурирования:</h3>
+        <strong>
+        <xmp>
+            // ES5
+            var person = { name: 'John', age: 30 };
+            var name = person.name;
+            var age = person.age;
+
+            // ES6
+            const person = { name: 'John', age: 30 };
+            const { name, age } = person;
+        </xmp>
+        </strong>
+    </li>
+    
+    <li>
+        <h3>Оператор распространения:</h3>
+        <strong>
+        <xmp>
+            // ES5
+            var arr1 = [1, 2, 3];
+            var arr2 = [4, 5, 6];
+            var arr3 = arr1.concat(arr2);
+
+            // ES6
+            const arr1 = [1, 2, 3];
+            const arr2 = [4, 5, 6];
+            const arr3 = [...arr1, ...arr2];
+        </xmp>
+        </strong>
     </li>
 </ol>
 
-<script>
-  const name = 'john';
-  const age = 25;
-  const sentence = "Hey it's " + name + " and he is " + age + " years old ";
-
-  // ES6
-  const value = `Hey it's ${name} and he is ${age} years old`;
-  console.log(sentence);
-  console.log(value);
-</script>
 </body>
 </html>
