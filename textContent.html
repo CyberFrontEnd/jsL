@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что делает textContent в javascript</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+<h1>что делает textContent в javascript</h1>
+<p>В JavaScript свойство textContent используется для получения или установки текстового содержимого узла и всех его потомков. Оно возвращает текстовое содержимое в виде строки.
+    Вот как это работает:</p>
+
+<h4>Получение текстового содержимого:</h4>
+<strong>
+    <xmp>
+        const element = document.getElementById('example');
+        const text = element.textContent;
+        console.log(text); // Outputs the text content of the element
+    </xmp>
+</strong>
+
+<h4>Настройка текстового содержимого:</h4>
+<strong>
+    <xmp>
+        const element = document.getElementById('example');
+        element.textContent = 'New text content';
+    </xmp>
+</strong>
+
+<h4>Пример:</h4>
+<div id="example">
+    <p>This is some <strong>bold</strong> text.</p>
+</div>
+
+<strong>
+<xmp>
+    const element = document.getElementById('example');
+    console.log(element.textContent); // Outputs: "This is some bold text."
+</xmp>
+</strong>
+
+<script>
+  const element = document.getElementById('example');
+  console.log(element.textContent); // Outputs: "This is some bold text."
+</script>
+
+<p>В этом примере element.textContent возвращает объединенное текстовое содержимое и всех его потомков, включая элементы и.</p>
+<p>В отличие от innerHTML, textContent возвращает только текстовое содержимое без какой-либо HTML-разметки. Часто используется, когда вам нужно работать только с самим текстом и вы
+    не хотите иметь дело с HTML-тегами. Кроме того, использование textContent может помочь предотвратить уязвимости XSS (межсайтового скриптинга), поскольку оно обрабатывает
+    содержимое как обычный текст, а не как HTML.</p>
+</body>
+</html>
