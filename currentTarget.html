@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>что currentTarget делает в javascript</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+<h1>что currentTarget делает в javascript</h1>
+<p>В JavaScript во время процесса обработки событий currentTarget ссылается на элемент, к которому подключен прослушиватель событий, тогда как target ссылается на элемент, который
+    вызвал событие.</p>
+
+<strong>
+    <xmp>
+        function handleClick(event) {
+        console.log("Target:", event.target.id);
+        console.log("Current Target:", event.currentTarget.id);
+        }
+
+        const outer = document.getElementById('outer');
+        const inner = document.getElementById('inner');
+
+        outer.addEventListener('click', handleClick);
+        inner.addEventListener('click', handleClick);
+    </xmp>
+</strong>
+
+<p>В этом примере, когда вы нажимаете на текст "Нажми на меня!" внутри div с идентификатором inner, вы увидите в консоли, что оба target и currentTarget совпадают, что является div
+    с идентификатором inner. Однако, если вы нажмете в любом другом месте внутри div с идентификатором outer, вы увидите, что target это div с идентификатором inner (элемент, в
+    котором произошел щелчок), в то время как currentTarget это div с идентификатором outer (элемент, к которому подключен прослушиватель событий).</p>
+
+
+<h2>Навигационное меню</h2>
+<p>Предположим, у вас есть меню навигации с несколькими ссылками. Вы хотите изменить цвет фона элемента навигации при нажатии на него.</p>
+<ul id="nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+</ul>
+<p>В этом примере, когда вы нажимаете на ссылку навигации, цвет фона соответствующего элемента списка меняется на lightblue. event.currentTarget относится к Элементу, к которому
+    подключен прослушиватель событий.
+</p>
+
+<script>
+  const nav = document.getElementById('nav');
+
+  function handleNavClick(event) {
+    // Prevent the default link behavior
+    event.preventDefault();
+
+    // Reset background color for all items
+    const items = nav.querySelectorAll('li');
+    items.forEach(item => item.style.backgroundColor = '');
+
+    // Set background color for the clicked item
+    event.currentTarget.style.backgroundColor = 'lightblue';
+  }
+
+  const links = nav.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', handleNavClick);
+  });
+</script>
+
+<div id="outer">
+    <div id="inner">Click me!</div>
+</div>
+
+<script>
+  // Start outer
+  function handleClick(event) {
+    console.log("Target:", event.target.id);
+    console.log("Current Target:", event.currentTarget.id);
+  }
+
+  const outer = document.getElementById('outer');
+  const inner = document.getElementById('inner');
+
+  outer.addEventListener('click', handleClick);
+  inner.addEventListener('click', handleClick);
+</script>
+
+
+<h3>Делегирование мероприятий</h3>
+<p>Делегирование событий - это метод, при котором вы подключаете единственный прослушиватель событий к родительскому элементу для управления событиями, которые происходят в его
+    потомках. Вот пример:</p>
+
+<strong>
+    <xmp>
+        const todoList = document.getElementById('todo-list');
+
+        function handleDeleteButtonClick(event) {
+        const listItem = event.currentTarget.parentNode;
+        listItem.remove();
+        }
+
+        todoList.addEventListener('click', function (event) {
+        if (event.target.classList.contains('delete-btn')) {
+        handleDeleteButtonClick(event);
+        }
+        });
+    </xmp>
+</strong>
+
+<p>В этом примере вместо того, чтобы прикреплять прослушиватель событий к каждой кнопке удаления по отдельности, мы прикрепляем один прослушиватель событий к
+ элементу. При нажатии кнопки удаления, event.currentTarget относится к элементу, а не к самой кнопке удаления. Однако мы можем использовать event.target для доступа к кнопке удаления, которая была нажата.</p>
+
+<p>ти примеры демонстрируют, как currentTarget можно использовать в различных сценариях для более эффективной обработки событий в JavaScript.</p>
+
+        <script>
+          const todoList = document.getElementById('todo-list');
+
+          function handleDeleteButtonClick(event) {
+            const listItem = event.currentTarget.parentNode;
+            listItem.remove();
+          }
+
+          todoList.addEventListener('click', function (event) {
+            if (event.target.classList.contains('delete-btn')) {
+              handleDeleteButtonClick(event);
+            }
+          });
+        </script>
+</body>
+</html>
