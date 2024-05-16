@@ -27,6 +27,7 @@
 
     <li>
         <h3>Литералы шаблона:(Конкатенация)</h3>
+        <p>Литералы шаблонов упрощают интерполяцию строк и многострочных строк.</p>
         <strong>
             <xmp>
                 // ES5
@@ -42,6 +43,7 @@
 
     <li>
         <h3>let и Const:</h3>
+        <p>Объявления Let и Const: let и const предоставляют переменные с блочной областью, заменяя var.</p>
         <strong>
             <xmp>
                 // ES5
@@ -57,6 +59,7 @@
 
     <li>
         <h3>Классы:</h3>
+        <p>Введен синтаксис классов для упрощения объектно-ориентированного программирования на основе прототипов.</p>
         <strong>
         <xmp>
             // ES5
@@ -69,21 +72,24 @@
             };
 
             // ES6
-            class Person {
+            class Animal {
             constructor(name) {
             this.name = name;
             }
+            speak() {
+            console.log(`${this.name} makes a noise.`);
+            }
+            }
 
-            sayHello() {
-            console.log(`Hello, ${this.name}`);
-            }
-            }
+            const dog = new Animal('Dog');
+            dog.speak(); // Outputs: Dog makes a noise.
         </xmp>
         </strong>
     </li>
     
     <li>
         <h3>Назначение Де структурирования:</h3>
+        <p> Легко извлекайте значения из массивов или объектов и присваивайте их переменным.</p>
         <strong>
         <xmp>
             // ES5
@@ -93,13 +99,18 @@
 
             // ES6
             const person = { name: 'John', age: 30 };
+            const { name, age } = person; // Outputs: John 30
+
+            const person = { name: "Alice", age: 30 };
             const { name, age } = person;
+            console.log(name, age); // Outputs: Alice 30
         </xmp>
         </strong>
     </li>
     
     <li>
         <h3>Оператор распространения:</h3>
+        <p>Позволяет расширять итеративное значение, такое как выражение массива или строка, в местах, где ожидается ноль или более аргументов.</p>
         <strong>
         <xmp>
             // ES5
@@ -110,11 +121,35 @@
             // ES6
             const arr1 = [1, 2, 3];
             const arr2 = [4, 5, 6];
-            const arr3 = [...arr1, ...arr2];
+            const combined = [...arr1, ...arr2];
+            console.log(combined); // Outputs: [1, 2, 3, 4, 5, 6]
+        </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h3>Обещания</h3>
+        <p>Упрощает асинхронное программирование, упрощая работу с асинхронными операциями.</p>
+
+        <strong>
+        <xmp>
+            function fetchData() {
+            return new Promise((resolve, reject) => {
+            // Asynchronous operation
+            setTimeout(() => {
+            resolve('Data fetched successfully!');
+            }, 2000);
+            });
+            }
+
+            fetchData()
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
         </xmp>
         </strong>
     </li>
 </ol>
 
+<p>Это некоторые из основных функций, представленных в ES6, каждая из которых предоставляет новые мощные способы написания кода JavaScript.</p>
 </body>
 </html>
