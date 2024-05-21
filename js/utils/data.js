@@ -5,3 +5,4 @@ export const people = [
   {name:'susan', job:'developer'},
   {name:'anna', job:'the boss'}
 ];
+
