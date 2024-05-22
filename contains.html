@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contains</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<p>В JavaScript .contains метод используется в разных контекстах в зависимости от типа объекта, к которому он вызывается. Наиболее распространенные варианты использования - с Node
+    интерфейсом и DOMTokenList interface.</p>
+
+<ol>
+    <li>
+        <h2>Node.contains()</h2>
+        <p>Метод Node.contains() проверяет, является ли узел потомком данного узла. Он возвращает, true если данный узел является потомком узла, на котором он вызывается, включая
+            сам узел, и false в противном случае.</p>
+        <strong>
+            <xmp>
+                let parent = document.getElementById('parent');
+                let child = document.getElementById('child');
+                console.log(parent.contains(child)); // истинно, если "дочерний" является потомком "родительского"
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <h2>DOMTokenList.contains()</h2>
+        <p>Метод DOMTokenList.contains() проверяет, присутствует ли данный класс (или токен) в списке токенов (обычно это имена классов в элементе). Он возвращает, true если класс
+            присутствует, и false в противном случае.</p>
+
+        <strong>
+            <xmp>
+                let element = document.getElementById('myElement');
+                console.log(element.classList.contains('myClass')); // истинно, если "мой класс" является одним из классов в "моем элементе"
+            </xmp>
+        </strong>
+
+        <ol>
+            <li>
+                <h3>Подробные сведения:</h3>
+                <p>Node.contains() часто используется для проверки, находится ли определенный элемент внутри другого элемента в дереве DOM. Это может быть полезно для обработки
+                    событий и манипулирования DOM.</p>
+            </li>
+
+            <li>
+                <h3>DOMTokenList.contains()</h3>
+                <p>в основном используется для проверки наличия класса в элементе. Это может быть полезно для условного применения стилей или динамического управления классами.</p>
+            </li>
+        </ol>
+    </li>
+</ol>
+
+<h2>Примеры использования:</h2>
+<strong>
+<xmp>
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+
+    <script>
+      let parent = document.getElementById('parent');
+      let child = document.getElementById('child');
+      console.log(parent.contains(child)); // Outputs: true
+      console.log(child.contains(parent)); // Outputs: false
+    </script>
+</xmp>
+</strong>
+
+<h2>DOMTokenList.contains()</h2>
+<strong>
+<xmp>
+    <div id="myElement" class="foo bar"></div>
+    <script>
+      let element = document.getElementById('myElement');
+      console.log(element.classList.contains('foo')); // Outputs: true
+      console.log(element.classList.contains('baz')); // Outputs: false
+    </script>
+</xmp>
+</strong>
+
+<p>Понимание этих методов позволяет вам более эффективно взаимодействовать с DOM в JavaScript и манипулировать им.</p>
+</body>
+</html>
