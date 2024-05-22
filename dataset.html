@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataSet</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1></h1>
+<p>В JavaScript термин "dataset" обычно относится к dataset свойству, доступному в элементах HTML. Это свойство предоставляет способ чтения и записи пользовательских атрибутов
+    данных (data-*) в элементах DOM. Вот объяснение и пример того, как dataset работает в JavaScript:</p>
+
+<p>dataset Свойство - это объект, который позволяет вам получить доступ ко всем пользовательским атрибутам данных (атрибутам, начинающимся с data-), установленным для элемента.
+    Имена свойств в dataset объекте являются производными от имен атрибутов путем удаления data- префикса и преобразования оставшейся части в camelCase.</p>
+
+<p>Например, если у элемента есть data-user-name атрибут, вы можете получить к нему доступ через element.dataset.userName.</p>
+
+<ol>
+    <li>
+        <p>Давайте рассмотрим HTML-элемент с некоторыми пользовательскими атрибутами данных:</p>
+        <strong>
+            <xmp>
+                <div id="myElement" data-user-id="1234" data-user-name="JohnDoe" data-user-role="admin"></div>
+            </xmp>
+        </strong>
+    </li>
+
+    <li>
+        <p>Вы можете получить доступ к этим атрибутам данных, используя dataset свойство в JavaScript:</p>
+        <strong>
+            <xmp>
+                // Select the element
+                const element = document.getElementById('myElement');
+
+                // Access data attributes using dataset
+                const userId = element.dataset.userId; // "1234"
+                const userName = element.dataset.userName; // "JohnDoe"
+                const userRole = element.dataset.userRole; // "admin"
+
+                // Modify data attributes using dataset
+                element.dataset.userRole = 'superadmin'; // Changes the attribute to data-user-role="superadmin"
+
+                // Add new data attribute
+                element.dataset.newAttribute = 'newValue'; // Adds data-new-attribute="newValue"
+
+                // Remove data attribute
+                delete element.dataset.newAttribute; // Removes data-new-attribute
+            </xmp>
+        </strong>
+    </li>
+</ol>
+
+<h2>Подробный пример с обработкой событий</h2>
+<p>Предположим, у вас есть список элементов, каждый из которых имеет пользовательские атрибуты данных, и вы хотите отображать эти атрибуты при нажатии на элемент:</p>
+
+<strong>
+    <xmp>
+        <ul>
+            <li data-item-id="1" data-item-name="Item 1">Item 1</li>
+            <li data-item-id="2" data-item-name="Item 2">Item 2</li>
+            <li data-item-id="3" data-item-name="Item 3">Item 3</li>
+        </ul>
+        <div id="itemInfo"></div>
+
+        // Select all list items
+        const items = document.querySelectorAll('li');
+
+        // Select the info display element
+        const itemInfo = document.getElementById('itemInfo');
+
+        // Add click event listener to each list item
+        items.forEach(item => {
+        item.addEventListener('click', () => {
+        // Access data attributes
+        const itemId = item.dataset.itemId;
+        const itemName = item.dataset.itemName;
+
+        // Display the info
+        itemInfo.textContent = `ID: ${itemId}, Name: ${itemName}`;
+        });
+        });
+    </xmp>
+</strong>
+
+<p>Свойство dataset в JavaScript предоставляет простой и удобный способ работы с пользовательскими атрибутами данных в HTML-элементах. Вы можете легко читать, записывать, изменять
+    и удалять эти атрибуты с помощью dataset объекта, который сопоставляет имена атрибутов свойствам camelCase. Эта функция особенно полезна для хранения метаданных или обработки
+    динамического содержимого в веб-приложениях.</p>
+
+</body>
+</html>
