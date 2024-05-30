@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Область видимости</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<p>В JavaScript область действия относится к доступности переменных и функций в различных частях кода. Понимание области действия имеет решающее значение для написания эффективного
+    и безошибочного кода. В JavaScript существует несколько типов области действия:</p>
+
+<h1> Глобальный охват:</h1>
+<ol>
+    <li>
+        <span>Переменные или функции, объявленные вне какой-либо функции или блока, имеют глобальную область действия.</span>
+    </li>
+
+    <li>
+        <span>Они доступны из любого места кода.</span>
+    </li>
+
+    <li>
+        <span>В среде браузера глобальные переменные являются свойствами window объекта.</span>
+    </li>
+
+<li>
+<strong>
+<xmp>
+    var globalVar = "I'm global";
+
+    function displayGlobalVar() {
+    console.log(globalVar); // Accessible here
+    }
+
+    displayGlobalVar();
+    console.log(globalVar); // Accessible here too
+</xmp>
+</strong>
+</li>
+</ol>
+
+<h1>Область действия функции:</h1>
+<ol>
+    <li>
+        <span>Переменные, объявленные внутри функции, доступны только внутри этой функции.</span>
+    </li>
+
+    <li>
+        <span>Это верно для переменных, объявленных с помощью var.</span>
+    </li>
+
+<li>
+<strong>
+<xmp>
+    function myFunction() {
+    var functionScopedVar = "I'm in a function";
+    console.log(functionScopedVar); // Accessible here
+    }
+
+    myFunction();
+    console.log(functionScopedVar); // Error: functionScopedVar is not defined
+</xmp>
+</strong>
+</li>
+</ol>
+
+<h1>Область действия блока:</h1>
+<ol>
+    <li>
+        <span>Введена в ES6 с помощью let и const.</span>
+    </li>
+
+    <li>
+        <span>Переменные, объявленные с помощью let и const, доступны только внутри блока, в котором они определены, например, внутри цикла или if инструкции.</span>
+    </li>
+
+<li>
+<strong>
+<xmp>
+    if (true) {
+    let blockScopedVar = "I'm in a block";
+    console.log(blockScopedVar); // Accessible here
+    }
+
+    console.log(blockScopedVar); // Error: blockScopedVar is not defined
+</xmp>
+</strong>
+</li>
+</ol>
+
+<h1>Лексическая область действия (статическая область действия):</h1>
+<ol>
+    <li>
+        <span>JavaScript использует лексическую область действия, что означает, что область действия переменной определяется ее расположением в исходном коде.</span>
+    </li>
+
+    <li>
+        <span>Вложенные функции имеют доступ к переменным, объявленным в их внешней области действия.</span>
+    </li>
+
+<li>
+<strong>
+<xmp>
+    function outerFunction() {
+    var outerVar = "I'm outside!";
+
+    function innerFunction() {
+    console.log(outerVar); // Accessible here
+    }
+
+    innerFunction();
+    }
+
+    outerFunction();
+</xmp>
+</strong>
+</li>
+</ol>
+
+<h1>Цепочка областей:</h1>
+<ol>
+    <li>
+        <span>Когда используется переменная, JavaScript начинает поиск в текущей области видимости и продолжает поиск по цепочке до внешних областей, пока не найдет переменную
+            или не достигнет глобальной области видимости.</span>
+    </li>
+    
+    <li>
+        <span>Если переменная не найдена, это приводит к ReferenceError.</span>
+    </li>
+    
+<li>
+<strong>
+<xmp>
+    var globalVar = "Global";
+
+    function outerFunction() {
+    var outerVar = "Outer";
+
+    function innerFunction() {
+    var innerVar = "Inner";
+    console.log(innerVar); // Inner
+    console.log(outerVar); // Outer
+    console.log(globalVar); // Global
+    }
+
+    innerFunction();
+    }
+
+    outerFunction();
+</xmp>
+</strong>
+</li>
+</ol>
+
+<h1>Замыкания:</h1>
+<ol>
+    <li>
+        <span>Закрытие - это функция, которая сохраняет доступ к своей внешней области действия даже после выполнения внешней функции.</span>
+    </li>
+    
+    <li>
+        <span>Это позволяет использовать фабрики функций, закрытые переменные и многое другое.</span>
+    </li>
+
+<li>
+<strong>
+<xmp>
+    function createCounter() {
+    let count = 0;
+    return function() {
+    count++;
+    console.log(count);
+    }
+    }
+
+    const counter = createCounter();
+    counter(); // 1
+    counter(); // 2
+</xmp>
+</strong>
+</li>
+</ol>
+
+<p>Понимание этих различных областей и того, как они взаимодействуют, важно для управления переменной доступностью и предотвращения потенциальных проблем при разработке JavaScript.</p>
+</body>
+</html>

@@ -149,13 +149,33 @@
     </xmp>
 </strong>
 
+<p>Еще одним ключевым отличием между var, let и const будет тот факт, что var - это всего лишь функция</p>
+
 <script>
-  let name = "Giorgi Omiadze";
-  let address, zip, state;
-  address = "toidze 60";
-  zip = 1260;
-  state = "Tbilisi";
-  console.log(address);
+  // Global Scope
+  // Итак, у нас будет доступ к этой переменной из любого места нашего документа
+  // Однако, если мы настроим переменную внутри функции, она будет доступна только изнутри функции.
+  // Таким образом, у нас не будет доступа к этой переменной извне функции.
+  var amount = 100;
+
+  // Доступно только внутри функции.
+  // Мы можем делать все, что захотим, внутри функции, но извне мы не можем получить к ней доступ.
+  function greet() {
+    var random = 'some random value';
+    console.log(`hello there ${amount} ${random}`);
+  }
+
+  // будет ошибка
+  console.log(random);
+</script>
+
+<script>
+  // let name = "Giorgi Omiadze";
+  // let address, zip, state;
+  // address = "toidze 60";
+  // zip = 1260;
+  // state = "Tbilisi";
+  // console.log(address);
 </script>
 </body>
 </html>
