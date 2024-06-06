@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>разрушения массива в javascript</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>Разрушения массива в javascript</h1>
+<p>В JavaScript под разрушением (destructuring) массива понимается удобный способ извлечения значений из массивов и объектов и присваивания их переменным. Это позволяет существенно
+    упростить и улучшить читаемость кода. Давайте рассмотрим несколько примеров разрушения массивов.</p>
+
+<h3>Основное разрушение массива</h3>
+<strong>
+<xmp>
+const array = [1, 2, 3, 4, 5];
+
+// Извлекаем первые два элемента
+const [first, second] = array;
+
+console.log(first); // 1
+console.log(second); // 2
+</xmp>
+</strong>
+
+<h3>Пропуск элементов</h3>
+<p>Вы можете пропускать элементы массива, используя запятые:</p>
+<strong>
+<xmp>
+const array = [1, 2, 3, 4, 5];
+
+// Извлекаем первый и третий элемент, пропуская второй
+const [first, , third] = array;
+
+console.log(first); // 1
+console.log(third); // 3
+</xmp>
+</strong>
+
+<h3>Остаточные элементы</h3>
+<p>Можно использовать оператор ... для сбора оставшихся элементов в отдельный массив:</p>
+<strong>
+<xmp>
+const array = [1, 2, 3, 4, 5];
+
+// Извлекаем первые два элемента, остальные собираем в отдельный массив
+const [first, second, ...rest] = array;
+
+console.log(first); // 1
+console.log(second); // 2
+console.log(rest); // [3, 4, 5]
+</xmp>
+</strong>
+
+<h3>Значения по умолчанию</h3>
+<p>Вы можете задавать значения по умолчанию для переменных:</p>
+<strong>
+<xmp>
+const array = [1, 2];
+
+// Извлекаем первые три элемента, задавая значение по умолчанию для третьего
+const [first, second, third = 3] = array;
+
+console.log(first); // 1
+console.log(second); // 2
+console.log(third); // 3
+</xmp>
+</strong>
+
+<h2>Вложенное разрушение</h2>
+<p>Массивы могут содержать вложенные массивы, и их тоже можно разрушать:</p>
+<strong>
+<xmp>
+const array = [1, [2, 3], 4];
+
+// Извлекаем элементы, включая вложенные
+const [first, [second, third], fourth] = array;
+
+console.log(first); // 1
+console.log(second); // 2
+console.log(third); // 3
+console.log(fourth); // 4
+</xmp>
+</strong>
+
+<h3>Обмен значений переменных</h3>
+<p>С помощью разрушения можно легко менять местами значения двух переменных:</p>
+<strong>
+<xmp>
+let a = 1;
+let b = 2;
+
+// Меняем местами значения переменных
+[a, b] = [b, a];
+
+console.log(a); // 2
+console.log(b); // 1
+</xmp>
+</strong>
+
+<p>Разрушение массивов — это мощный инструмент, который позволяет писать более чистый и понятный код, особенно при работе с массивами и объектами.</p>
+</body>
+</html>
