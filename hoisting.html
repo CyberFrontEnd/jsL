@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Понятие "подъем" (hoisting)</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>Понятие "подъем" (hoisting)</h1>
+
+<p>Понятие "подъем" (hoisting) в JavaScript относится к тому, как интерпретатор JavaScript обрабатывает объявления переменных и функций. Давайте разберем это подробнее.</p>
+
+<p>В JavaScript объявления переменных (с ключевыми словами var, let, и const) поднимаются (hoisted) наверх их области видимости. Однако, инициализация переменных остается на месте.
+    Это значит, что переменная может быть использована до того, как она была объявлена, но до инициализации её значение будет undefined (для var). Для let и const переменных,
+    доступ к переменной до объявления приведет к ошибке ReferenceError.</p>
+
+<strong>
+    <xmp>
+        console.log(a); // undefined
+        var a = 5;
+        console.log(a); // 5
+    </xmp>
+</strong>
+
+<h4>Это эквивалентно:</h4>
+<strong>
+    <xmp>
+        var a;
+        console.log(a); // undefined
+        a = 5;
+        console.log(a); // 5
+    </xmp>
+</strong>
+
+
+<h4>Пример с let и const:</h4>
+<strong>
+    <xmp>
+        console.log(b); // ReferenceError: Cannot access 'b' before initialization
+        let b = 5;
+        console.log(b); // 5
+
+        console.log(c); // ReferenceError: Cannot access 'c' before initialization
+        const c = 10;
+        console.log(c); // 10
+    </xmp>
+</strong>
+
+
+<h2>Подъем функций</h2>
+<p>Функции, объявленные с помощью function declaration, поднимаются целиком, включая их тело. Это значит, что функция может быть вызвана до её объявления в коде.</p>
+<strong>
+    <xmp>
+        console.log(foo()); // "Hello"
+
+        function foo() {
+        return "Hello";
+        }
+    </xmp>
+</strong>
+
+<h3>Это эквивалентно:</h3>
+<strong>
+    <xmp>
+        function foo() {
+        return "Hello";
+        }
+
+        console.log(foo()); // "Hello"
+    </xmp>
+</strong>
+
+<p>Однако, это не относится к функциям, объявленным с помощью function expression. В этом случае поднимается только объявление переменной, а не самой функции.</p>
+<strong>
+    <xmp>
+        console.log(bar()); // TypeError: bar is not a function
+
+        var bar = function() {
+        return "Hi";
+        };
+
+        console.log(bar()); // "Hi"
+    </xmp>
+</strong>
+
+<h3>Это эквивалентно:</h3>
+<strong>
+    <xmp>
+        var bar;
+
+        console.log(bar()); // TypeError: bar is not a function
+
+        bar = function() {
+        return "Hi";
+        };
+
+        console.log(bar()); // "Hi"
+    </xmp>
+</strong>
+
+<h3>Заключение</h3>
+<p>Подъем (hoisting) в JavaScript - это механизм, с помощью которого объявления переменных и функций "поднимаются" к началу их области видимости. Важно понимать этот механизм,
+    чтобы избежать неожиданных результатов при доступе к переменным и функциям до их явного объявления в коде.</p>
+</body>
+</html>

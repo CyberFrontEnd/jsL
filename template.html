@@ -61,5 +61,24 @@
 
 <p>Литералы шаблонов - это мощная функция JavaScript, которая может значительно повысить читаемость и гибкость вашего кода при работе со строками.</p>
 <br><br><br><br><br>
+
+<p id="result"></p>
+
+<script>
+    const author = "Some Author";
+    const statement = "Some Statement";
+    const quote = highlight `Here is the <strong>${statement}</strong>  by ${author} and it could not be more true`;
+    console.log(quote);
+
+    const result = document.getElementById("result");
+    result.innerHTML = quote;
+
+    function highlight(text, ...vars) {
+      const awesomeText = text.map((item, index) => {
+        return `${item} <strong class="blue">${vars[index] || ""}</strong>`
+      });
+      return awesomeText.join("");
+    }
+</script>
 </body>
 </html>
