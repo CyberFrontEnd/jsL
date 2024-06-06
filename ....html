@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Строки шаблонов в javascript</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+<h1>Строки шаблонов в javascript</h1>
+<p>Оператор ... в JavaScript называется оператором распространения (spread) и оператором остатка (rest) в зависимости от контекста его использования. Давайте рассмотрим оба
+    применения.</p>
+
+<h2>Оператор распространения (spread)</h2>
+<p>Оператор распространения используется для "разворачивания" массивов или объектов. Он позволяет легко создавать копии массивов и объектов, а также комбинировать их.</p>
+
+<h3>Примеры: Расширение массива</h3>
+<strong>
+<xmp>
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5, 6];
+console.log(arr2); // [1, 2, 3, 4, 5, 6]
+</xmp>
+</strong>
+
+<h3>Копирование массива:</h3>
+<strong>
+<xmp>
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1];
+console.log(arr2); // [1, 2, 3]
+</xmp>
+</strong>
+
+<h3>Комбинирование объектов:</h3>
+<strong>
+<xmp>
+const obj1 = {a: 1, b: 2};
+const obj2 = {b: 3, c: 4};
+const combinedObj = {...obj1, ...obj2};
+console.log(combinedObj); // {a: 1, b: 3, c: 4}
+</xmp>
+</strong>
+
+<h1>Оператор остатка (rest)</h1>
+<p>Оператор остатка используется для создания функции с переменным числом аргументов. Он позволяет собирать оставшиеся аргументы в массив.</p>
+
+<h3>Примеры: Функция с переменным числом аргументов</h3>
+<strong>
+<xmp>
+function sum(...numbers) {
+return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(1, 2, 3)); // 6
+console.log(sum(1, 2, 3, 4, 5)); // 15
+</xmp>
+</strong>
+
+<h3>Остаточные параметры в функциях:</h3>
+<strong>
+<xmp>
+function multiply(multiplier, ...theArgs) {
+return theArgs.map(element => multiplier * element);
+}
+
+const arr = multiply(2, 1, 2, 3);
+console.log(arr); // [2, 4, 6]
+</xmp>
+</strong>
+
+<h1>Использование в деструктуризации</h1>
+<p>Оператор остатка также можно использовать при деструктуризации массивов и объектов.</p>
+
+<h4>Деструктуризация массива:</h4>
+<strong>
+<xmp>
+const [first, ...rest] = [1, 2, 3, 4, 5];
+console.log(first); // 1
+console.log(rest);  // [2, 3, 4, 5]
+</xmp>
+</strong>
+
+<h3>Деструктуризация объекта:</h3>
+<strong>
+<xmp>
+const {a, b, ...rest} = {a: 1, b: 2, c: 3, d: 4};
+console.log(a);    // 1
+console.log(b);    // 2
+console.log(rest); // {c: 3, d: 4}
+</xmp>
+</strong>
+
+<p>Таким образом, оператор ... является мощным инструментом в JavaScript для работы с массивами, объектами и функциями.</p>
+</body>
+</html>
