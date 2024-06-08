@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Оператор for of</title>
+    <link rel="stylesheet" href="css/castom.css">
+</head>
+<body>
+
+<h1>Оператор for of</h1>
+<p>for...of — это цикл в JavaScript, который позволяет перебирать итерируемые объекты (такие, как массивы, строки, объекты Map, Set и т.д.). Он был добавлен в ECMAScript 6 (ES6) и
+    является более современным и удобным способом итерирования по элементам коллекций по сравнению с другими циклами, такими как for и for...in.</p>
+
+<h3>Синтаксис</h3>
+<strong>
+    <xmp>
+        for (const element of iterable) {
+        // код, который будет выполняться для каждого элемента
+        }
+    </xmp>
+</strong>
+
+<ol>
+    <li>
+        <span><b>element</b> — переменная, которая будет содержать текущий элемент итерируемого объекта на каждой итерации.</span>
+    </li>
+
+    <li>
+        <span><b>iterable</b> — итерируемый объект, по которому происходит проход (например, массив, строка и т.д.).</span>
+    </li>
+</ol>
+
+<h3>Перебор массива</h3>
+<strong>
+    <xmp>
+        const array = [1, 2, 3, 4, 5];
+
+        for (const number of array) {
+        console.log(number);
+        }
+        // Вывод:
+        // 1
+        // 2
+        // 3
+        // 4
+        // 5
+    </xmp>
+</strong>
+
+<h3>Перебор строки</h3>
+<strong>
+    <xmp>
+        const string = "Hello";
+
+        for (const char of string) {
+        console.log(char);
+        }
+        // Вывод:
+        // H
+        // e
+        // l
+        // l
+        // o
+    </xmp>
+</strong>
+
+<h3>Перебор объекта Map</h3>
+<strong>
+    <xmp>
+        const map = new Map();
+        map.set('name', 'John');
+        map.set('age', 30);
+
+        for (const [key, value] of map) {
+        console.log(`${key}: ${value}`);
+        }
+        // Вывод:
+        // name: John
+        // age: 30
+    </xmp>
+</strong>
+
+<h2>Перебор объекта Set</h2>
+<strong>
+    <xmp>
+        const set = new Set([1, 2, 3, 4, 5]);
+
+        for (const value of set) {
+        console.log(value);
+        }
+        // Вывод:
+        // 1
+        // 2
+        // 3
+        // 4
+        // 5
+    </xmp>
+</strong>
+
+<h3>Отличия от for...in</h3>
+<p>for...of предназначен для перебора значений итерируемого объекта.</p>
+<p>for...in предназначен для перебора свойств объекта.</p>
+<strong>
+    <xmp>
+        const array = [1, 2, 3, 4, 5];
+
+        for (const index in array) {
+        console.log(index);
+        }
+        // Вывод:
+        // 0
+        // 1
+        // 2
+        // 3
+        // 4
+    </xmp>
+</strong>
+
+<p>Как видно, for...in перебирает индексы (или ключи), тогда как for...of перебирает значения.</p>
+<p>Цикл for...of является мощным инструментом для итерирования по коллекциям в JavaScript и делает код более читаемым и лаконичным.</p>
+
+<script>
+  const fruits = ['apple', 'orange', 'banana', 'peach'];
+  const longName = 'John Smith Pepper III';
+  let shortName = '';
+
+  for (const letter of longName) {
+    // console.log(letter);
+    if (letter === ' ') {
+      continue;
+    } else {
+      shortName += letter;
+    }
+  }
+
+  //console.log(shortName);
+
+  for (const fruit of fruits) {
+    if (fruit === 'banana') {
+      continue;
+    }
+  }
+  
+  console.log(fruit);
+</script>
+</body>
+</html>
